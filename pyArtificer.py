@@ -4,14 +4,23 @@ from kivy.app import App
 from kivy.base import runTouchApp
 from kivy.lang import Builder
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
-from kivy.uix.anchorlayout import AnchorLayout
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
 
 
 class ScrnMgr(ScreenManager):
     pass
 
 
-class MainMenuScreen(Screen):
+class MenuBarButton(Button):
+    pass
+
+
+class MenuBar(BoxLayout):
+    pass
+
+
+class MainMenu(Screen):
     pass
 
 
@@ -19,15 +28,15 @@ class CreateMagicItemScreen(Screen):
     pass
 
 
-class CreateMagicPropertyScreen(Screen):
-    pass
-
-
 class LoadMagicItemScreen(Screen):
     pass
 
 
-class HeaderMenu(Screen):
+class CreateEldrictPropertyScreen(Screen):
+    pass
+
+
+class CreateSpecialMaterialScreen(Screen):
     pass
 
 
@@ -35,64 +44,85 @@ root_widget = Builder.load_string('''
 #:import FadeTransition kivy.uix.screenmanager.FadeTransition
 ScrnMgr:
     transition: FadeTransition()
-    MainMenuScreen:
+    MainMenu:
     CreateMagicItemScreen:
-    CreateMagicPropertyScreen:
+    CreateEldrictPropertyScreen:
+    CreateSpecialMaterialScreen:
     LoadMagicItemScreen:
-    HeaderMenu:
+    
+<MenuBarButton>:
+    text_size: self.width, None
+    halign: 'center'
+    valign: 'center'
 
-<Btn@Button>:
-    size_hint: [None,None]
-    size: [100,100]
-
-<Header@AnchorLayout>:
-    anchor_x: 'center'
-    anchor_y: 'top'
-
-    canvas:
-        Color: 
-            rgb: [.5,.9,.5]
-        Rectangle:
-            pos: self.pos
-            size: int(self.size / 10)
-    Btn:
+<MenuBar>:
+    orientation: 'horizontal'
+    size_hint_y: None
+    size_y: 5
+    MenuBarButton:
         text: 'Main'
         on_release: app.root.current = 'main menu'
+    MenuBarButton:
+        text: 'Craft Item'
+        on_release: app.root.current = 'create magic item'
+    MenuBarButton:
+        text: 'Load Item'
+        on_release: app.root.current = 'load magic item'
+    MenuBarButton:
+        text: 'Craft Property'
+        on_release: app.root.current = 'create eldrict property'
+    MenuBarButton:
+        text: 'Craft Material'
+        on_release: app.root.current = 'create special material'
 
-<MainMenuScreen>:
+<MainMenu>:
     name: 'main menu'
     BoxLayout:
         orientation: 'vertical'
-        Header:
-
-        BoxLayout:
-            orientation: 'vertical'
-
-            Button:
-                text: 'Create magic Item'
-                font_size: 30
-                on_release: app.root.current = 'create magic item'
-            Button:
-                text: 'Load magic Item'
-                font_size: 30
-                on_release: app.root.current = 'load magic item'
-            Button:
-                text: 'Create magic property'
-                font_size: 30
-                on_release: app.root.current = 'CreateMagicPropertyScreen'
+        MenuBar:
+        Label:
+            text: 'Main Menu'
 
 <CreateMagicItemScreen>:
     name: 'create magic item'
-<CreateMagicPropertyScreen>:
-    name: 'create magic property'
+    BoxLayout:
+        orientation: 'vertical'
+        MenuBar:
+        Label:
+            text: 'Craft magic Item'
+
 <LoadMagicItemScreen>:
     name: 'load magic item'
+    BoxLayout:
+        orientation: 'vertical'
+        MenuBar:
+        Label:
+            text: 'Load magic item'
+            
+<CreateEldrictPropertyScreen>:
+    name: 'create eldrict property'
+    BoxLayout:
+        orientation: 'vertical'
+        MenuBar:
+        Label:
+            text: 'Craft Eldrict property'
+
+<CreateSpecialMaterialScreen>:
+    name: 'create special material'
+    BoxLayout:
+        orientation: 'vertical'
+        MenuBar:
+        Label:
+            text: 'Craft special material'
+
+
+
 ''')
 
 
-class artificerApp(App):
+class ArtificerApp(App):
     def build(self):
         return root_widget
 
 
-artificerApp().run()
+ArtificerApp().run()
