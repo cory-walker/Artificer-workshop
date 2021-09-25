@@ -9,6 +9,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.dropdown import DropDown
+from kivy.uix.anchorlayout import AnchorLayout
 from kivy.properties import ObjectProperty
 
 
@@ -39,22 +40,53 @@ class loadItemDropDown(DropDown):
 
 class LoadMagicItemScreen(Screen):
 
-    addButton = ObjectProperty(None)
+    #addButton = ObjectProperty(None)
 
     def __init__(self, **kwargs):
         super(LoadMagicItemScreen, self).__init__(**kwargs)
         self.saved_items = self.load_saved_items_names()
 
+        tc = AnchorLayout(anchor_y='top', anchor_x='center')
+        self.add_widget(tc)
+
+        mb = MenuBar()
+        tc.add_widget(mb)
+
+        cl = AnchorLayout(anchor_y='center', anchor_x='left')
+        self.add_widget(cl)
+        dd = DropDown(size_hint_y=None, height=500)
+        cl.add_widget(dd)
+        for item_name in self.saved_items:
+            btn = Button(text=item_name, size_hint_y=None, height=25)
+            btn.bind(on_release=lambda btn: dd.select(self.loadItem(btn.text)))
+            dd.add_widget(btn)
+
+        '''
+        bl = BoxLayout()
+        bl.orientation = "horizontal"
+        bl.width = self.width
+        self.add_widget(bl)
+
         self.dropdown = DropDown()
-        self.dropdown.clear_widgets()
 
         for mi in self.saved_items:
-            btn = Button(text=mi, size_hint_y=None, height=20)
+            btn = Button(text=mi
+                    , size_hint=(None, None)
+                    , size=[]height=self.height,
+                         size_hint_x=None, width=self.width)
             btn.bind(on_release=lambda btn: self.dropdown.select(
                 self.loadItem(btn.text)))
             self.dropdown.add_widget(btn)
 
-        self.dropdown.open
+        bl.add_widget(self.dropdown)
+
+        # self.selectButton = Button(
+        #    text="Select an Item", size_hint=(None, None))
+        # self.selectButton.bind(on_release=self.dropdown.open)
+        self.dropdown.bind(on_select=lambda instance,
+                           x: self.loadItem(x))
+        # self.add_widget(self.selectButton)
+        '''
 
     def loadItem(self, item_name):
         print(item_name)
@@ -107,6 +139,7 @@ ScrnMgr:
         text: 'Craft Item'
         on_release: app.root.current = 'create magic item'
     MenuBarButton:
+        name: 'load_item'
         text: 'Load Item'
         on_release: app.root.current = 'load magic item'
     MenuBarButton:
@@ -134,11 +167,6 @@ ScrnMgr:
 
 <LoadMagicItemScreen>:
     name: 'load magic item'
-    BoxLayout:
-        orientation: 'vertical'
-        MenuBar:
-        Label:
-            text: 'Load magic item'
 
 <CreateEldrictPropertyScreen>:
     name: 'create eldrict property'
