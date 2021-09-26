@@ -5,6 +5,7 @@ import ArcaneLab
 from kivy.app import App
 from kivy.base import runTouchApp
 from kivy.lang import Builder
+from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
@@ -14,7 +15,8 @@ from kivy.properties import ObjectProperty
 
 
 class ScrnMgr(ScreenManager):
-    pass
+    def __init__(self, **kwargs):
+        super(ScrnMgr, self).__init__(**kwargs)
 
 
 class MenuBarButton(Button):
@@ -44,52 +46,26 @@ class LoadMagicItemScreen(Screen):
 
     def __init__(self, **kwargs):
         super(LoadMagicItemScreen, self).__init__(**kwargs)
+
+        self.height = Window.height
+        self.width = Window.width
+
         self.saved_items = self.load_saved_items_names()
 
-        tc = AnchorLayout(anchor_y='top', anchor_x='center')
-        self.add_widget(tc)
+        bl = BoxLayout(orientation="vertical")
+        self.add_widget(bl)
+        bl.add_widget(MenuBar())
 
-        mb = MenuBar()
-        tc.add_widget(mb)
-
-        cl = AnchorLayout(anchor_y='center', anchor_x='left')
-        self.add_widget(cl)
         dd = DropDown(size_hint_y=None, height=500)
-        cl.add_widget(dd)
+        bl.add_widget(dd)
         for item_name in self.saved_items:
             btn = Button(text=item_name, size_hint_y=None, height=25)
             btn.bind(on_release=lambda btn: dd.select(self.loadItem(btn.text)))
             dd.add_widget(btn)
 
-        '''
-        bl = BoxLayout()
-        bl.orientation = "horizontal"
-        bl.width = self.width
-        self.add_widget(bl)
-
-        self.dropdown = DropDown()
-
-        for mi in self.saved_items:
-            btn = Button(text=mi
-                    , size_hint=(None, None)
-                    , size=[]height=self.height,
-                         size_hint_x=None, width=self.width)
-            btn.bind(on_release=lambda btn: self.dropdown.select(
-                self.loadItem(btn.text)))
-            self.dropdown.add_widget(btn)
-
-        bl.add_widget(self.dropdown)
-
-        # self.selectButton = Button(
-        #    text="Select an Item", size_hint=(None, None))
-        # self.selectButton.bind(on_release=self.dropdown.open)
-        self.dropdown.bind(on_select=lambda instance,
-                           x: self.loadItem(x))
-        # self.add_widget(self.selectButton)
-        '''
-
     def loadItem(self, item_name):
         print(item_name)
+        ScreenManager.current = 'create magic item'
 
     def load_saved_items_names(self):
         scrpt_dir = path.dirname(__file__)

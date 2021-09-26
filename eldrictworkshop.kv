@@ -1,0 +1,26 @@
+<Display>:
+    BoxLayout:
+        orientation: "vertical"
+
+        BoxLayout:
+            size_hint: 1, None
+            height: '48dp'
+            Button:
+                text: 'Craft Item'
+                on_release: sm.current = 'crafting'  #<<<<<<<<<<<<<<<<
+            Button:
+                text: 'Load Item'
+                on_release: sm.current = 'load_item'  #<<<<<<<<<<<<<<<<
+
+        ScreenManager:
+            id: sm
+            CraftingScreen:
+            LoadItemScreen:
+
+<CraftingScreen>:
+    name: 'crafting'      #<<<<<<<<<<<<<<<<
+    Button:
+        text: 'Item Crafting'
+
+<LoadItemScreen>:
+    name: 'load_item'      #<<<<<<<<<<<<<<<<
