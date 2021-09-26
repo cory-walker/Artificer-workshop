@@ -25,8 +25,73 @@
         
 <CraftingScreen>:
     name: 'crafting'      #<<<<<<<<<<<<<<<<
-    Button:
-        text: 'Item Crafting'
+    BoxLayout:
+        orientation: 'horizontal'
+        BoxLayout:
+            orientation: 'vertical'
+            TextInput:
+                id: 'Item Name'
+                text: 'Enter Item Name Here'
 
+            Button:
+                id: rarity_button
+                text: 'Rarity: ?'
+                on_release: rarity_dropdown.open(self)
+
+            DropDown:
+                id: rarity_dropdown
+                on_select: rarity_button.text = 'Rarity: {}'.format(args[1])
+                size_hint: None, None
+                width: root.width
+                buttonHeight: 24
+                Button:
+                    text: 'common'
+                    on_release: rarity_dropdown.select(self.text)
+                    size_hint_y: None
+                    height: rarity_dropdown.buttonHeight
+                Button:
+                    text: 'uncommon'
+                    on_release: rarity_dropdown.select(self.text)
+                    size_hint_y: None
+                    height: rarity_dropdown.buttonHeight
+                Button:
+                    text: 'rare' 
+                    on_release: rarity_dropdown.select(self.text)
+                    size_hint_y: None
+                    height: rarity_dropdown.buttonHeight
+                Button:
+                    text: 'very rare'
+                    on_release: rarity_dropdown.select(self.text)
+                    size_hint_y: None
+                    height: rarity_dropdown.buttonHeight
+                Button:
+                    text: 'legendary'
+                    on_release: rarity_dropdown.select(self.text)
+                    size_hint_y: None
+                    height: rarity_dropdown.buttonHeight
+            BoxLayout:
+                orientation: 'horizontal'
+                BoxLayout:
+                    orientation: 'horizontal'
+                    Label:
+                        text: 'consumable'
+                        halign: 'right'
+                    CheckBox:
+                        id: consumable_checkbox
+                BoxLayout:
+                    orientation: 'horizontal'
+                    Label:
+                        text: 'artifact'
+                        halign: 'right'
+                    CheckBox:
+                        id: artifact_checkbox
+        BoxLayout:
+            orientation: 'vertical'
 <LoadItemScreen>:
     name: 'load_item'      #<<<<<<<<<<<<<<<<
+
+<RarityButton>:
+    text: 'mundane'
+    on_release: rarity_dropdown.select(self.text)
+    size_hint_y: None
+    height: 24

@@ -8,6 +8,7 @@ from kivy.properties import StringProperty, ObjectProperty
 from kivy.uix.dropdown import DropDown
 from kivy.uix.button import Button
 from kivy.core.window import Window
+from kivy.uix.checkbox import CheckBox
 
 cur_item = None
 
