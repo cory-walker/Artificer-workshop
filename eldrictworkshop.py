@@ -4,7 +4,7 @@ from os import path
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.boxlayout import BoxLayout
-from kivy.properties import StringProperty, ObjectProperty
+from kivy.properties import StringProperty, ObjectProperty, BooleanProperty
 from kivy.uix.dropdown import DropDown
 from kivy.uix.button import Button
 from kivy.core.window import Window
@@ -37,6 +37,14 @@ class Display(BoxLayout):
 
     def __init__(self, **kwargs):
         super(Display, self).__init__(**kwargs)
+
+
+class RarityDropDown(BoxLayout):
+    state = BooleanProperty(False)
+
+
+class EldrictPropertyDropDown(BoxLayout):
+    state = BooleanProperty(False)
 
 
 class LoadItemScreen(Screen):
@@ -108,6 +116,10 @@ class SplashScreen(Screen):
 class CraftingScreen(Screen):
     def __init__(self, **kwargs):
         super(CraftingScreen, self).__init__(**kwargs)
+        eld = EldrictPropertyDropDown()
+        for c in self.children:
+            print(c.name)
+        print("i")
 
 
 class EldrictWorkshopApp(App):

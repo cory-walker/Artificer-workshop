@@ -22,7 +22,60 @@
     name: 'splash'
     Label:
         text: "Splashy splash splash"
-        
+<EldrictPropertiesDropDown>:
+    name: 'eldrict properties'
+    Button:
+        id: eldrict_prop_btn
+        text: 'property'
+        on_release:
+            if not root.state: eldrict_properties_dd.open(self); root.state = True
+            else: eldrict_properties_dd.dismiss();root.state = False
+    DropDown:
+        id: eldrict_properties_dd
+        on_select: eldrict_prop_btn.text = '{}'.format(args[1]); root.state=False
+        size_hint: None, None
+        width: root.width
+        buttonHeight: 24
+
+<RarityDropDown>:
+    name: 'rarity dropdown'
+    Button:
+        id: rarity_button
+        text: 'Rarity: ?'
+        on_release: 
+            if not root.state: rarity_dropdown.open(self); root.state = True
+            else: rarity_dropdown.dismiss(); root.state = False
+    DropDown:
+        id: rarity_dropdown    
+        on_select: rarity_button.text = 'Rarity: {}'.format(args[1]); root.state=False
+        size_hint: None, None
+        width: root.width
+        buttonHeight: 24
+        Button:
+            text: 'common'
+            on_release: rarity_dropdown.select(self.text)
+            size_hint_y: None
+            height: rarity_dropdown.buttonHeight
+        Button:
+            text: 'uncommon'
+            on_release: rarity_dropdown.select(self.text)
+            size_hint_y: None
+            height: rarity_dropdown.buttonHeight
+        Button:
+            text: 'rare' 
+            on_release: rarity_dropdown.select(self.text)
+            size_hint_y: None
+            height: rarity_dropdown.buttonHeight
+        Button:
+            text: 'very rare'
+            on_release: rarity_dropdown.select(self.text)
+            size_hint_y: None
+            height: rarity_dropdown.buttonHeight
+        Button:
+            text: 'legendary'
+            on_release: rarity_dropdown.select(self.text)
+            size_hint_y: None
+            height: rarity_dropdown.buttonHeight
 <CraftingScreen>:
     name: 'crafting'      #<<<<<<<<<<<<<<<<
     BoxLayout:
@@ -33,60 +86,25 @@
                 id: 'Item Name'
                 text: 'Enter Item Name Here'
 
-            Button:
-                id: rarity_button
-                text: 'Rarity: ?'
-                on_release: rarity_dropdown.open(self)
-
-            DropDown:
-                id: rarity_dropdown
-                on_select: rarity_button.text = 'Rarity: {}'.format(args[1])
-                size_hint: None, None
-                width: root.width
-                buttonHeight: 24
-                Button:
-                    text: 'common'
-                    on_release: rarity_dropdown.select(self.text)
-                    size_hint_y: None
-                    height: rarity_dropdown.buttonHeight
-                Button:
-                    text: 'uncommon'
-                    on_release: rarity_dropdown.select(self.text)
-                    size_hint_y: None
-                    height: rarity_dropdown.buttonHeight
-                Button:
-                    text: 'rare' 
-                    on_release: rarity_dropdown.select(self.text)
-                    size_hint_y: None
-                    height: rarity_dropdown.buttonHeight
-                Button:
-                    text: 'very rare'
-                    on_release: rarity_dropdown.select(self.text)
-                    size_hint_y: None
-                    height: rarity_dropdown.buttonHeight
-                Button:
-                    text: 'legendary'
-                    on_release: rarity_dropdown.select(self.text)
-                    size_hint_y: None
-                    height: rarity_dropdown.buttonHeight
+            RarityDropDown:
+                
             BoxLayout:
                 orientation: 'horizontal'
-                BoxLayout:
-                    orientation: 'horizontal'
-                    Label:
-                        text: 'consumable'
-                        halign: 'right'
-                    CheckBox:
-                        id: consumable_checkbox
-                BoxLayout:
-                    orientation: 'horizontal'
-                    Label:
-                        text: 'artifact'
-                        halign: 'right'
-                    CheckBox:
-                        id: artifact_checkbox
+                Label:
+                    text: 'consumable'
+                    halign: 'right'
+                CheckBox:
+                    id: consumable_checkbox
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:
+                    text: 'artifact'
+                    halign: 'right'
+                CheckBox:
+                    id: artifact_checkbox
         BoxLayout:
             orientation: 'vertical'
+            id: props_box
 <LoadItemScreen>:
     name: 'load_item'      #<<<<<<<<<<<<<<<<
 
