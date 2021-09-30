@@ -1,114 +1,114 @@
-﻿attribute name,attribute type,description,requires attunement,weapon bonus,ac bonus,spell bonus,Cantrips,Spell levels once a day,Spell levels 3 times a day,Spell levels infinte times a day,Damage d6,Damage type
-Unbreakable,attribute,The magic item cannot be harmed or damaged through non-magical means. ,FALSE,0,0,0,0,0,0,0,0,0
-Drawing blows,attribute,You can use your reaction to redirect a successful attack made to an adjacent target to you instead,FALSE,0,0,0,0,0,0,0,0,0
-Arcane script,attribute,"Symbols, writing, or a small area of the magic item softly glows, producing dim light for a one foot radius",FALSE,0,0,0,0,0,0,0,0,0
-Arcane sensation,attribute,"When you first touch the magic item, you feel a predetermined sensation chosen by it's crafter",FALSE,0,0,0,0,0,0,0,0,0
-Gleaming,attribute,"The magic item is always clean. dirt, grime, or any sullying material sheds off of the object",FALSE,0,0,0,0,0,0,0,0,0
-Moon touched,attribute,The magic item sheds dim light in a ten foot radius when in darkness,FALSE,0,0,0,0,0,0,0,0,0
-Cantrip immunity,attribute,"The character attuned to this item is granted immunity from all effects and damage for a predetermined spell of level one or lower, while wearing or touching the item",TRUE,0,0,0,0,0,0,0,0,0
-Cantrip casting,attribute,The magic item's weilder can use the object to cast a predetermined cantrip,FALSE,0,0,0,1,0,0,0,0,0
-Easily lost,attribute,The magic item and any of it's contents are invisible when worn,FALSE,0,0,0,0,0,0,0,0,0
-Lost but not forgotten,attribute,The magic item and any of it's contents are invisible when worn. The character attuned to the item can sense it's direction and exact distance from themselves,TRUE,0,0,0,0,0,0,0,0,0
-Spell level once a day,attribute,"Adds one spell level to the ""once a day"" spell level pool",FALSE,0,0,0,0,1,0,0,0,0
-Arcane focus,attribute,The magic item is an arcane focus for a predetermined class,FALSE,0,0,0,0,0,0,0,0,0
-Universal focus,attribute,The magic item is an arcane focus for the character attuned to it,TRUE,0,0,0,0,0,0,0,0,0
-Caster's choice,attribute,"Any spells the magic item is capable of being used to cast also become known spells to the character attuned to this item, so long as they are a spell caster and so long as they are attuned to it.",TRUE,0,0,0,0,0,0,0,0,0
-Glimmering,attribute,The magic items appears to be a really valuable object,FALSE,0,0,0,0,0,0,0,0,0
-Shoddy,attribute,The magic item appears to be a mundane or worthless object,FALSE,0,0,0,0,0,0,0,0,0
-On off switch,attribute,The character attuned to this item can use a bonus action to activate or deactivate persistant properties of the magic item,TRUE,0,0,0,0,0,0,0,0,0
-A little luck,attribute,"The character attuned to this item is granted advantage to a predetermined skill or ability check when opposing a predetermined race or creature type, while wearing or touching the item",TRUE,0,0,0,0,0,0,0,0,0
-Two spell levels once a day,minor,"Adds two spell level to the ""once a day"" spell level pool",FALSE,0,0,0,0,2,0,0,0,0
-One spell level thrice a day,minor,"Adds one spell level to the ""three times a day"" spell level pool",FALSE,0,0,0,0,0,1,0,0,0
-Cantrips ahoy,minor,The magic item's weilder can use the object to cast one of three predetermined cantrips,FALSE,0,0,0,0,0,0,0,0,0
-Plus one attack,minor,This magic item grants the weilder +1 to their attacks and damage rolls when using this item as the weapon,FALSE,1,0,0,0,0,0,0,0,0
-Plus one armor,minor,This magic item grants the weilder +1 to their AC when worn,FALSE,0,1,0,0,0,0,0,0,0
-Plus one spell casting,minor,This magic item grants the weilder +1 to the spell attach and damage rolls when using this item as an arcane focus,FALSE,0,0,1,0,0,0,0,0,0
-Flight,minor,The magic item can fly with a fly speed of 30',FALSE,0,0,0,0,0,0,0,0,0
-Healing boost,minor,The magic item adds 1d6 healing to healing spells cast when the character attuned to the item uses the item as an arcane focus,TRUE,0,0,0,0,0,0,0,0,0
-Adamantine weave,minor,Critical hits against the wearer of this item count as normal hits,FALSE,0,0,0,0,0,0,0,0,0
-Auto stabilization,minor,The wearer is stabilized if their health drops to or below zero,FALSE,0,0,0,0,0,0,0,0,0
-Productive crafting,minor,"When the character attuned to this item uses a workweek of downtime to craft, an additional workweek's of production may be added",TRUE,0,0,0,0,0,0,0,0,0
-Bigger on the inside,minor,The magic item now contains a 64 cubic foot extra dimensional space,FALSE,0,0,0,0,0,0,0,0,0
-Lucky item,minor,The character attuned to this item gains advantage on a predetermined skill or ability check,TRUE,0,0,0,0,0,0,0,0,0
-Disease immunity,minor,the character attuned to this item gains immunity to disease while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Blind immunity,minor,the character attuned to this item gains immunity to the blinded condition while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Charm immunity,minor,the character attuned to this item gains immunity to the charmed condition while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Deafened immunity,minor,the character attuned to this item gains immunity to the deafened condition while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Frightened immunity,minor,the character attuned to this item gains immunity to the firghtened condition while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Paralyzed immunity,minor,the character attuned to this item gains immunity to the paralyzed condition while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Petrified immunity,minor,the character attuned to this item gains immunity to the petrified condition while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Poisoned immunity,minor,the character attuned to this item gains immunity to the poisoned condition while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Weakening attacks,minor,"When damaged by this magic item, the victim cannot regain health until the start of this item's weilder's next turn",FALSE,0,0,0,0,0,0,0,0,0
-Dark vision,minor,This item grants an additional 60' of darkvision when used,FALSE,0,0,0,0,0,0,0,0,0
-Telescopic vision,minor,This item allows the user to use a bonus action to see a chosen target up to 60' away as if they are right in front of it.,FALSE,0,0,0,0,0,0,0,0,0
-Greater smell,minor,This item grants advantage on perception checks that rely on a sense of smell,FALSE,0,0,0,0,0,0,0,0,0
-Greater hearing,minor,This item grants advantage on perception checks that rely on a sense of hearing,FALSE,0,0,0,0,0,0,0,0,0
-Slashing resistance,minor,The character attuned to this item gains resistance to Slashing damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Piercing resistance,minor,The character attuned to this item gains resistance to Piercing damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Bludgeoning resistance,minor,The character attuned to this item gains resistance to Bludgeoning damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Poison resistance,minor,The character attuned to this item gains resistance to Poison damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Acid resistance,minor,The character attuned to this item gains resistance to Acid damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Fire resistance,minor,The character attuned to this item gains resistance to Fire damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Cold resistance,minor,The character attuned to this item gains resistance to Cold damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Radiant resistance,minor,The character attuned to this item gains resistance to Radiant damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Necrotic resistance,minor,The character attuned to this item gains resistance to Necrotic damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Lightning resistance,minor,The character attuned to this item gains resistance to Lightning damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Thunder resistance,minor,The character attuned to this item gains resistance to Thunder damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Force resistance,minor,The character attuned to this item gains resistance to Force damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Pyschic resistance,minor,The character attuned to this item gains resistance to Pyschic damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Slashing damage,minor,The character attuned to this item adds 1d6 Slashing damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,Slashing
-Piercing damage,minor,The character attuned to this item adds 1d6 Piercing damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,Piercing
-Bludgeoning damage,minor,The character attuned to this item adds 1d6 Bludgeoning damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,Bludgeoning
-Poison damage,minor,The character attuned to this item adds 1d6 Poison damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,Poison
-Acid damage,minor,The character attuned to this item adds 1d6 Acid damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,Acid
-Fire damage,minor,The character attuned to this item adds 1d6 Fire damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,Fire
-Cold damage,minor,The character attuned to this item adds 1d6 Cold damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,Cold
-Radiant damage,minor,The character attuned to this item adds 1d6 Radiant damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,Radiant
-Necrotic damage,minor,The character attuned to this item adds 1d6 Necrotic damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,Nextrotic
-Lightning damage,minor,The character attuned to this item adds 1d6 Lightning damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,Lightning
-Thunder damage,minor,The character attuned to this item adds 1d6 Thunder damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,Thunder
-Force damage,minor,The character attuned to this item adds 1d6 Force damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,Force
-Pyschic damage,minor,The character attuned to this item adds 1d6 Pyschic damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,Pyschic
-Major Slashing damage,major,The character attuned to this item adds 4d6 Slashing damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,Slashing
-Major Piercing damage,major,The character attuned to this item adds 4d6 Piercing damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,Piercing
-Major Bludgeoning damage,major,The character attuned to this item adds 4d6 Bludgeoning damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,Bludgeoning
-Major Poison damage,major,The character attuned to this item adds 4d6 Poison damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,Poison
-Major Acid damage,major,The character attuned to this item adds 4d6 Acid damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,Acid
-Major Fire damage,major,The character attuned to this item adds 4d6 Fire damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,Fire
-Major Cold damage,major,The character attuned to this item adds 4d6 Cold damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,Cold
-Major Radiant damage,major,The character attuned to this item adds 4d6 Radiant damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,Radiant
-Major Necrotic damage,major,The character attuned to this item adds 4d6 Necrotic damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,Nextrotic
-Major Lightning damage,major,The character attuned to this item adds 4d6 Lightning damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,Lightning
-Major Thunder damage,major,The character attuned to this item adds 4d6 Thunder damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,Thunder
-Major Force damage,major,The character attuned to this item adds 4d6 Force damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,Force
-Major Pyschic damage,major,The character attuned to this item adds 4d6 Pyschic damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,Pyschic
-Slashing immunity,major,The character attuned to this item is immune to Slashing damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Piercing immunity,major,The character attuned to this item is immune to Piercing damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Bludgeoning immunity,major,The character attuned to this item is immune to Bludgeoning damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Poison immunity,major,The character attuned to this item is immune to Poison damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Acid immunity,major,The character attuned to this item is immune to Acid damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Fire immunity,major,The character attuned to this item is immune to Fire damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Cold immunity,major,The character attuned to this item is immune to Cold damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Radiant immunity,major,The character attuned to this item is immune to Radiant damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Necrotic immunity,major,The character attuned to this item is immune to Necrotic damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Lightning immunity,major,The character attuned to this item is immune to Lightning damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Thunder immunity,major,The character attuned to this item is immune to Thunder damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Force immunity,major,The character attuned to this item is immune to Force damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Pyschic immunity,major,The character attuned to this item is immune to Pyschic damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Seven spell levels once a day,major,"Adds seven spell levels to the ""once a day"" spell level pool",TRUE,0,0,0,0,7,0,0,0,0
-Four spell levels thrice a day,major,"Adds four spell levels to the ""three times a day"" spell level pool",TRUE,0,0,0,0,0,4,0,0,0
-Two spell levels infinite times a day,major,"Adds two spell levels to the ""infinite times a day"" spell level pool",TRUE,0,0,0,0,0,0,2,0,0
-Plus three attack,major,This magic item grants the weilder +3 to their attacks and damage rolls when using this item as the weapon,FALSE,3,0,0,0,0,0,0,0,0
-Plus three armor,major,This magic item grants the weilder +3 to their AC when worn,FALSE,0,3,0,0,0,0,0,0,0
-Plus three spell casting,major,This magic item grants the weilder +3 to the spell attach and damage rolls when using this item as an arcane focus,FALSE,0,0,3,0,0,0,0,0,0
-Sentient,major,"This magic item has a sentience and can communicate with the character that is attuned to it via a telepathic bond. It has an Intelligence, Wisdom, and Charisma of 12 and is proficient in Wisdom saving throws. The item also has blindsight for a 10' radius. This item can take ""Use magic item"" action to use it's own properties on the attuned character's turn.",TRUE,0,0,0,0,0,0,0,0,0
-Animated,major,"This magic item gains a speed of 30 and can take appropriate physical actions based on it's form. If the item is not sentient, then the character attuned to it may use their bonus action to direct it",TRUE,0,0,0,0,0,0,0,0,0
-Boosted Intelligence,major,The character attuned to this item gains +2 to their Intelligence and their maximum is increased by 2.,TRUE,0,0,0,0,0,0,0,0,0
-Boosted Strength,major,The character attuned to this item gains +2 to their Strength and their maximum is increased by 2.,TRUE,0,0,0,0,0,0,0,0,0
-Boosted Charisma,major,The character attuned to this item gains +2 to their Charisma and their maximum is increased by 2.,TRUE,0,0,0,0,0,0,0,0,0
-Boosted Wisdom,major,The character attuned to this item gains +2 to their Wisdom and their maximum is increased by 2.,TRUE,0,0,0,0,0,0,0,0,0
-Boosted Constitution,major,The character attuned to this item gains +2 to their Constitution and their maximum is increased by 2.,TRUE,0,0,0,0,0,0,0,0,0
-Boosted Dexterity,major,The character attuned to this item gains +2 to their Dexterity and their maximum is increased by 2.,TRUE,0,0,0,0,0,0,0,0,0
-Exhaustion immunity,major,The character attuned to this item is immune to exhaustion while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Major healing,major,The character attuned to this item adds 4d6 healing when casting healing spells using this item as an arcane focus,TRUE,0,0,0,0,0,0,0,0,0
-Awesome crafting,major,"When the character attuned to this item uses a workweek of downtime to craft, an additional three workweek's of production may be added",TRUE,0,0,0,0,0,0,0,0,0
+﻿Name,Level,description,requires attunement,weapon bonus,ac bonus,spell bonus,Cantrips,Spell levels once a day,Spell levels 3 times a day,Spell levels infinte times a day,Damage d6,Damage type
+Unbreakable,1,The magic item cannot be harmed or damaged through non-magical means. ,FALSE,0,0,0,0,0,0,0,0,0
+Drawing blows,1,You can use your reaction to redirect a successful attack made to an adjacent target to you instead,FALSE,0,0,0,0,0,0,0,0,0
+Arcane script,1,"Symbols, writing, or a small area of the magic item softly glows, producing dim light for a one foot radius",FALSE,0,0,0,0,0,0,0,0,0
+Arcane sensation,1,"When you first touch the magic item, you feel a predetermined sensation chosen by it's crafter",FALSE,0,0,0,0,0,0,0,0,0
+Gleaming,1,"The magic item is always clean. dirt, grime, or any sullying material sheds off of the object",FALSE,0,0,0,0,0,0,0,0,0
+Moon touched,1,The magic item sheds dim light in a ten foot radius when in darkness,FALSE,0,0,0,0,0,0,0,0,0
+Cantrip immunity,1,"The character attuned to this item is granted immunity from all effects and damage for a predetermined spell of level one or lower, while wearing or touching the item",TRUE,0,0,0,0,0,0,0,0,0
+Cantrip casting,1,The magic item's weilder can use the object to cast a predetermined cantrip,FALSE,0,0,0,1,0,0,0,0,0
+Easily lost,1,The magic item and any of it's contents are invisible when worn,FALSE,0,0,0,0,0,0,0,0,0
+Lost but not forgotten,1,The magic item and any of it's contents are invisible when worn. The character attuned to the item can sense it's direction and exact distance from themselves,TRUE,0,0,0,0,0,0,0,0,0
+Spell level once a day,1,"Adds one spell level to the ""once a day"" spell level pool",FALSE,0,0,0,0,1,0,0,0,0
+Arcane focus,1,The magic item is an arcane focus for a predetermined class,FALSE,0,0,0,0,0,0,0,0,0
+Universal focus,1,The magic item is an arcane focus for the character attuned to it,TRUE,0,0,0,0,0,0,0,0,0
+Caster's choice,1,"Any spells the magic item is capable of being used to cast also become known spells to the character attuned to this item, so long as they are a spell caster and so long as they are attuned to it.",TRUE,0,0,0,0,0,0,0,0,0
+Glimmering,1,The magic items appears to be a really valuable object,FALSE,0,0,0,0,0,0,0,0,0
+Shoddy,1,The magic item appears to be a mundane or worthless object,FALSE,0,0,0,0,0,0,0,0,0
+On off switch,1,The character attuned to this item can use a bonus action to activate or deactivate persistant properties of the magic item,TRUE,0,0,0,0,0,0,0,0,0
+A little luck,1,"The character attuned to this item is granted advantage to a predetermined skill or ability check when opposing a predetermined race or creature type, while wearing or touching the item",TRUE,0,0,0,0,0,0,0,0,0
+Two spell levels once a day,2,"Adds two spell level to the ""once a day"" spell level pool",FALSE,0,0,0,0,2,0,0,0,0
+One spell level thrice a day,2,"Adds one spell level to the ""three times a day"" spell level pool",FALSE,0,0,0,0,0,1,0,0,0
+Cantrips ahoy,2,The magic item's weilder can use the object to cast one of three predetermined cantrips,FALSE,0,0,0,0,0,0,0,0,0
+Plus one attack,2,This magic item grants the weilder +1 to their attacks and damage rolls when using this item as the weapon,FALSE,1,0,0,0,0,0,0,0,0
+Plus one armor,2,This magic item grants the weilder +1 to their AC when worn,FALSE,0,1,0,0,0,0,0,0,0
+Plus one spell casting,2,This magic item grants the weilder +1 to the spell attach and damage rolls when using this item as an arcane focus,FALSE,0,0,1,0,0,0,0,0,0
+Flight,2,The magic item can fly with a fly speed of 30',FALSE,0,0,0,0,0,0,0,0,0
+Healing boost,2,The magic item adds 1d6 healing to healing spells cast when the character attuned to the item uses the item as an arcane focus,TRUE,0,0,0,0,0,0,0,0,0
+Adamantine weave,2,Critical hits against the wearer of this item count as normal hits,FALSE,0,0,0,0,0,0,0,0,0
+Auto stabilization,2,The wearer is stabilized if their health drops to or below zero,FALSE,0,0,0,0,0,0,0,0,0
+Productive crafting,2,"When the character attuned to this item uses a workweek of downtime to craft, an additional workweek's of production may be added",TRUE,0,0,0,0,0,0,0,0,0
+Bigger on the inside,2,The magic item now contains a 64 cubic foot extra dimensional space,FALSE,0,0,0,0,0,0,0,0,0
+Lucky item,2,The character attuned to this item gains advantage on a predetermined skill or ability check,TRUE,0,0,0,0,0,0,0,0,0
+Disease immunity,2,the character attuned to this item gains immunity to disease while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
+Blind immunity,2,the character attuned to this item gains immunity to the blinded condition while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
+Charm immunity,2,the character attuned to this item gains immunity to the charmed condition while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
+Deafened immunity,2,the character attuned to this item gains immunity to the deafened condition while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
+Frightened immunity,2,the character attuned to this item gains immunity to the firghtened condition while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
+Paralyzed immunity,2,the character attuned to this item gains immunity to the paralyzed condition while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
+Petrified immunity,2,the character attuned to this item gains immunity to the petrified condition while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
+Poisoned immunity,2,the character attuned to this item gains immunity to the poisoned condition while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
+Weakening attacks,2,"When damaged by this magic item, the victim cannot regain health until the start of this item's weilder's next turn",FALSE,0,0,0,0,0,0,0,0,0
+Dark vision,2,This item grants an additional 60' of darkvision when used,FALSE,0,0,0,0,0,0,0,0,0
+Telescopic vision,2,This item allows the user to use a bonus action to see a chosen target up to 60' away as if they are right in front of it.,FALSE,0,0,0,0,0,0,0,0,0
+Greater smell,2,This item grants advantage on perception checks that rely on a sense of smell,FALSE,0,0,0,0,0,0,0,0,0
+Greater hearing,2,This item grants advantage on perception checks that rely on a sense of hearing,FALSE,0,0,0,0,0,0,0,0,0
+Slashing resistance,2,The character attuned to this item gains resistance to Slashing damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
+Piercing resistance,2,The character attuned to this item gains resistance to Piercing damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
+Bludgeoning resistance,2,The character attuned to this item gains resistance to Bludgeoning damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
+Poison resistance,2,The character attuned to this item gains resistance to Poison damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
+Acid resistance,2,The character attuned to this item gains resistance to Acid damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
+Fire resistance,2,The character attuned to this item gains resistance to Fire damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
+Cold resistance,2,The character attuned to this item gains resistance to Cold damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
+Radiant resistance,2,The character attuned to this item gains resistance to Radiant damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
+Necrotic resistance,2,The character attuned to this item gains resistance to Necrotic damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
+Lightning resistance,2,The character attuned to this item gains resistance to Lightning damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
+Thunder resistance,2,The character attuned to this item gains resistance to Thunder damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
+Force resistance,2,The character attuned to this item gains resistance to Force damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
+Pyschic resistance,2,The character attuned to this item gains resistance to Pyschic damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
+Slashing damage,2,The character attuned to this item adds 1d6 Slashing damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,1
+Piercing damage,2,The character attuned to this item adds 1d6 Piercing damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,2
+Bludgeoning damage,2,The character attuned to this item adds 1d6 Bludgeoning damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,3
+Poison damage,2,The character attuned to this item adds 1d6 Poison damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,4
+Acid damage,2,The character attuned to this item adds 1d6 Acid damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,5
+Fire damage,2,The character attuned to this item adds 1d6 Fire damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,6
+Cold damage,2,The character attuned to this item adds 1d6 Cold damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,7
+Radiant damage,2,The character attuned to this item adds 1d6 Radiant damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,8
+Necrotic damage,2,The character attuned to this item adds 1d6 Necrotic damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,9
+Lightning damage,2,The character attuned to this item adds 1d6 Lightning damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,10
+Thunder damage,2,The character attuned to this item adds 1d6 Thunder damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,11
+Force damage,2,The character attuned to this item adds 1d6 Force damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,12
+Pyschic damage,3,The character attuned to this item adds 1d6 Pyschic damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,13
+Major Slashing damage,3,The character attuned to this item adds 4d6 Slashing damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,1
+Major Piercing damage,3,The character attuned to this item adds 4d6 Piercing damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,2
+Major Bludgeoning damage,3,The character attuned to this item adds 4d6 Bludgeoning damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,3
+Major Poison damage,3,The character attuned to this item adds 4d6 Poison damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,4
+Major Acid damage,3,The character attuned to this item adds 4d6 Acid damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,5
+Major Fire damage,3,The character attuned to this item adds 4d6 Fire damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,6
+Major Cold damage,3,The character attuned to this item adds 4d6 Cold damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,7
+Major Radiant damage,3,The character attuned to this item adds 4d6 Radiant damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,8
+Major Necrotic damage,3,The character attuned to this item adds 4d6 Necrotic damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,9
+Major Lightning damage,3,The character attuned to this item adds 4d6 Lightning damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,10
+Major Thunder damage,3,The character attuned to this item adds 4d6 Thunder damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,11
+Major Force damage,3,The character attuned to this item adds 4d6 Force damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,12
+Major Pyschic damage,3,The character attuned to this item adds 4d6 Pyschic damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,13
+Slashing immunity,3,The character attuned to this item is immune to Slashing damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
+Piercing immunity,3,The character attuned to this item is immune to Piercing damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
+Bludgeoning immunity,3,The character attuned to this item is immune to Bludgeoning damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
+Poison immunity,3,The character attuned to this item is immune to Poison damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
+Acid immunity,3,The character attuned to this item is immune to Acid damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
+Fire immunity,3,The character attuned to this item is immune to Fire damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
+Cold immunity,3,The character attuned to this item is immune to Cold damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
+Radiant immunity,3,The character attuned to this item is immune to Radiant damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
+Necrotic immunity,3,The character attuned to this item is immune to Necrotic damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
+Lightning immunity,3,The character attuned to this item is immune to Lightning damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
+Thunder immunity,3,The character attuned to this item is immune to Thunder damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
+Force immunity,3,The character attuned to this item is immune to Force damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
+Pyschic immunity,3,The character attuned to this item is immune to Pyschic damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
+Seven spell levels once a day,3,"Adds seven spell levels to the ""once a day"" spell level pool",TRUE,0,0,0,0,7,0,0,0,0
+Four spell levels thrice a day,3,"Adds four spell levels to the ""three times a day"" spell level pool",TRUE,0,0,0,0,0,4,0,0,0
+Two spell levels infinite times a day,3,"Adds two spell levels to the ""infinite times a day"" spell level pool",TRUE,0,0,0,0,0,0,2,0,0
+Plus three attack,3,This magic item grants the weilder +3 to their attacks and damage rolls when using this item as the weapon,FALSE,3,0,0,0,0,0,0,0,0
+Plus three armor,3,This magic item grants the weilder +3 to their AC when worn,FALSE,0,3,0,0,0,0,0,0,0
+Plus three spell casting,3,This magic item grants the weilder +3 to the spell attach and damage rolls when using this item as an arcane focus,FALSE,0,0,3,0,0,0,0,0,0
+Sentient,3,"This magic item has a sentience and can communicate with the character that is attuned to it via a telepathic bond. It has an Intelligence, Wisdom, and Charisma of 12 and is proficient in Wisdom saving throws. The item also has blindsight for a 10' radius. This item can take ""Use magic item"" action to use it's own properties on the attuned character's turn.",TRUE,0,0,0,0,0,0,0,0,0
+Animated,3,"This magic item gains a speed of 30 and can take appropriate physical actions based on it's form. If the item is not sentient, then the character attuned to it may use their bonus action to direct it",TRUE,0,0,0,0,0,0,0,0,0
+Boosted Intelligence,3,The character attuned to this item gains +2 to their Intelligence and their maximum is increased by 2.,TRUE,0,0,0,0,0,0,0,0,0
+Boosted Strength,3,The character attuned to this item gains +2 to their Strength and their maximum is increased by 2.,TRUE,0,0,0,0,0,0,0,0,0
+Boosted Charisma,3,The character attuned to this item gains +2 to their Charisma and their maximum is increased by 2.,TRUE,0,0,0,0,0,0,0,0,0
+Boosted Wisdom,3,The character attuned to this item gains +2 to their Wisdom and their maximum is increased by 2.,TRUE,0,0,0,0,0,0,0,0,0
+Boosted Constitution,3,The character attuned to this item gains +2 to their Constitution and their maximum is increased by 2.,TRUE,0,0,0,0,0,0,0,0,0
+Boosted Dexterity,3,The character attuned to this item gains +2 to their Dexterity and their maximum is increased by 2.,TRUE,0,0,0,0,0,0,0,0,0
+Exhaustion immunity,3,The character attuned to this item is immune to exhaustion while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
+Major healing,3,The character attuned to this item adds 4d6 healing when casting healing spells using this item as an arcane focus,TRUE,0,0,0,0,0,0,0,0,0
+Awesome crafting,3,"When the character attuned to this item uses a workweek of downtime to craft, an additional three workweek's of production may be added",TRUE,0,0,0,0,0,0,0,0,0
