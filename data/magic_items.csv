@@ -1,10 +1,10 @@
 "item name","description","rarity name","is artifact","is consumable","property names","special materials"
-"new item1","Add description","common",False,False,[],[]
-"new item2","Add description","common",False,False,[],[]
-"new item3","Add description","common",False,False,[],[]
-"new item4","Add description","common",False,False,[],[]
-"new item5","Add description","common",False,False,[],[]
-"new item6","Add description","common",False,False,[],[]
-"new item7","Add description","common",False,False,[],[]
-"new item8","Add description","common",False,False,[],[]
-"new item9","Add description","common",False,False,[],[]
+"new item1","Add description",1,False,False,"Plus three attack,Plus one attack",""
+"new item2","Add description",1,False,False,"Plus one attack",""
+"new item3","Add description",1,False,False,"",""
+"new item4","Add description",1,False,False,"",""
+"new item5","Add description",1,False,False,"",""
+"new item6","Add description",1,False,False,"",""
+"new item7","Add description",1,False,False,"",""
+"new item8","Add description",1,False,False,"",""
+"new item9","Add description",1,False,False,"",""
