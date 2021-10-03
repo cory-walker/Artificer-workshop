@@ -93,7 +93,7 @@ class MagicItemPropertyFactory:
 
 class ArcaneLab:
     def __init__(self):
-        self.current_item = None
+        self.current_item_name = ""
         self.magic_properties = {}
         self.magic_materials = {}
         self.magic_items = {}
@@ -153,12 +153,6 @@ class ArcaneLab:
             elif spell_times_a_day == 99:
                 spell_levels += self.magic_properties[p].spell_lvl_inf_a_day
         return spell_levels
-
-
-'''self.spell_lvl_1_a_day = 0
-        self.spell_lvl_3_a_day = 0
-        self.spell_lvl_inf_a_day = 0
-        '''
 
 
 if __name__ == "__main__":
