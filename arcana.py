@@ -4,7 +4,7 @@ from os import path
 magic_property_levels = {1: "attribute",
                          2: "minor", 3: "major", 4: "detriment"}
 rarities = {1: "common", 2: "uncommon",
-            3: "rare", 4: "very rare", 5: "kegendary"}
+            3: "rare", 4: "very rare", 5: "legendary"}
 
 damage_types = {1: "slashing", 2: "piercing", 3: "bludgeoning", 4: "poison", 5: "acid", 6: "fire",
                 7: "cold", 8: "radiant", 9: "necrotic", 10: "lightning", 11: "thunder", 12: "force", 13: "psychic"}
@@ -43,7 +43,8 @@ class MagicProperty:
 
 
 class MagicItemFactory():
-    def list_to_magic_item(lst):
+
+    def list_to_magic_item(lst, magic_properties, magic_materials):
         '''"item name","description","rarity name","is artifact","is consumable","property names","special materials"'''
         mi = MagicItem()
         mi.name = str(lst[0])
@@ -51,22 +52,28 @@ class MagicItemFactory():
         mi.rarity = int(lst[2])
         mi.is_artifact = bool(lst[3])
         mi.is_consumable = bool(lst[4])
-        for p in lst[5].split(","):
-            mi.magic_properties.append(str(p))
-        for p in lst[6].split(","):
-            mi.magic_materials.append(str(p))
+        if lst[5] != "":
+            for p in str(lst[5]).split(","):
+                mi.magic_properties.append(magic_properties[str(p)])
+        if lst[6] != "":
+            for p in str(lst[6]).split(","):
+                mi.magic_materials.append(magic_materials[str(p)])
         return mi
 
 
 class MagicItem:
-    def __init__(self):
-        self.name = ""
-        self.description = ""
-        self.rarity = 1
-        self.is_consumable = False
-        self.is_artifact = False
-        self.magic_properties = []
-        self.magic_materials = []
+
+    def __init__(self, name="new item", description="", rarity=1, is_consumable=False, is_artifact=False, magic_properties=[], magic_materials=[]):
+        self.name = name  # string
+        self.description = description  # string
+        self.rarity = rarity  # int
+        self.is_consumable = is_consumable  # boolean
+        self.is_artifact = is_artifact  # boolean
+        self.magic_properties = magic_properties  # M<agicProperty
+        self.magic_materials = magic_materials  # MagicMaterial
+
+    def rarity_str(self):
+        return rarities[self.rarity]
 
 
 class MagicItemPropertyFactory:
@@ -93,10 +100,16 @@ class MagicItemPropertyFactory:
 
 class ArcaneLab:
     def __init__(self):
-        self.current_item_name = ""
+        self.current_item = MagicItem(name="new item")
         self.magic_properties = {}
         self.magic_materials = {}
         self.magic_items = {}
+
+        self.load_magic_properties()
+        self.load_magic_items(self.magic_properties, {})
+
+    def new_item(self):
+        self.current_item_name = "new item"
 
     def load_magic_properties(self):
         scrpt_dir = path.dirname(__file__)
@@ -111,7 +124,7 @@ class ArcaneLab:
             self.magic_properties[mp.name] = mp
         f.close()
 
-    def load_magic_items(self):
+    def load_magic_items(self, magic_properties, magic_materials):
         scrpt_dir = path.dirname(__file__)
         filepath = path.join(scrpt_dir, ".\\data\\magic_items.csv")
         f = open(filepath, "r")
@@ -120,9 +133,12 @@ class ArcaneLab:
         next(reader, None)  # skip headers
         mfact = MagicItemFactory
         for l in reader:
-            mi = mfact.list_to_magic_item(l)
+            mi = mfact.list_to_magic_item(l, magic_properties, magic_materials)
             self.magic_items[mi.name] = mi
         f.close()
+
+    def fetch_curtent_item_magic_properties(self):
+        return self.current_item.magic_properties
 
     def fetch_magic_properties(self, magic_item_name):
         return self.magic_items[magic_item_name].magic_properties
@@ -131,16 +147,16 @@ class ArcaneLab:
         bon = 0
         props = self.fetch_magic_properties(magic_item_name)
         for p in props:
-            if self.magic_properties[p].has_bonus(bonus_type):
-                bon += self.magic_properties[p].bonuses[bonus_type]
+            if p.has_bonus(bonus_type):
+                bon += p.bonuses[bonus_type]
         return bon
 
     def magicItemDamage(self, magic_item_name, damage_type):
         d6 = 0
         props = self.fetch_magic_properties(magic_item_name)
         for p in props:
-            if self.magic_properties[p].dmg_type == damage_type:
-                d6 += self.magic_properties[p].dmg_d6
+            if p.dmg_type == damage_type:
+                d6 += p.dmg_d6
 
     def magicItemSpellsLevels(self, magic_item_name, spell_times_a_day):
         spell_levels = 0
@@ -158,8 +174,5 @@ class ArcaneLab:
 if __name__ == "__main__":
     print("no syntax errors")
     al = ArcaneLab()
-    al.load_magic_properties()
-    print(al.magic_properties['Easily lost'].to_csv_string())
-    al.load_magic_items()
     print("loading complete")
     print(al.magicItemBonus("new item1", "weapon"))
