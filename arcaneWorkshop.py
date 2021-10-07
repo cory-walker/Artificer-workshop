@@ -14,6 +14,7 @@ from kivy.uix.checkbox import CheckBox
 from kivy.uix.popup import Popup
 
 al = arcana.ArcaneLab()
+al.current_item = arcana.MagicItem()
 
 
 class MenuBarButton(Button):
@@ -62,6 +63,10 @@ class kivyFactory():
 
 
 class ScrnCraftItem(Screen):
+    pass
+
+
+'''
     global al
     cur_item = ObjectProperty(al.current_item)
     name = StringProperty('craft item')
@@ -123,6 +128,7 @@ class ScrnCraftItem(Screen):
     def open_rarity_popup(self, *args):
         rarPop = RarityPopup()
         rarPop.open()
+'''
 
 
 class ScrnMain(Screen):
@@ -187,6 +193,7 @@ ScrnMgr:
         Label:
             text: "Main Menu"
 <RarityPopup>:
+    on_dismiss: app.print_something('something')
     BoxLayout:
         orientation: "vertical"
         Button:
@@ -205,7 +212,7 @@ ScrnMgr:
             text: "legendary"
             on_release: root.update_rarity(5); root.dismiss()
 
-<ScrnCraftItemOrig>:
+<ScrnCraftItem>:
     name: "craft item orig"
 
     BoxLayout:
@@ -242,7 +249,7 @@ ScrnMgr:
                 text: "Rarity"
             Button:
                 id: 'rarBtn'
-                text: str(root.cur_item.rarity_str())
+                text: app.root.curItemRar()
                 on_release: root.open_rarity_popup()
 
 
@@ -250,8 +257,14 @@ ScrnMgr:
 
 
 class ArcaneWorkshopApp(App):
+    global al
+    curItemRar = StringProperty(al.current_item.rarity_str)
+
     def build(self):
         return root_widget
+
+    def print_something(self, text, **kwargs):
+        print(text)
 
 
 ArcaneWorkshopApp().run()
