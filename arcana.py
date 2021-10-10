@@ -9,6 +9,16 @@ rarities = {1: "common", 2: "uncommon",
 damage_types = {1: "slashing", 2: "piercing", 3: "bludgeoning", 4: "poison", 5: "acid", 6: "fire",
                 7: "cold", 8: "radiant", 9: "necrotic", 10: "lightning", 11: "thunder", 12: "force", 13: "psychic"}
 
+rarity_numbers = {"common": 1, "uncommon": 2,
+                  "rare": 3, "very rare": 4, "legendary": 5}
+
+attributes_by_rarity = {1: 1, 2: 1, 3: 2, 4: 3, 5: 5}
+minor_properties_by_rarity = {1: 0, 2: 1, 3: 2, 4: 2, 5: 3}
+major_properties_by_rarity = {1: 0, 2: 0, 3: 0, 4: 1, 5: 2}
+max_spell_lvl_by_rarity = {1: 1, 2: 3, 3: 6, 4: 8, 5: 9}
+max_plus_by_rarity = {1: 0, 2: 1, 3: 2, 4: 3, 5: 4}
+max_bonus_properties_by_rarity = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5}
+
 
 class MagicMaterial:
     def __init__(self):

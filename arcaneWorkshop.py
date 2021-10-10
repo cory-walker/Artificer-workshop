@@ -1,4 +1,4 @@
-import kivy
+#import kivy
 import arcana
 
 from kivy.app import App
@@ -13,24 +13,12 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.checkbox import CheckBox
 from kivy.uix.popup import Popup
 
-al = arcana.ArcaneLab()
-al.current_item = arcana.MagicItem()
-
-
-class MenuBarButton(Button):
-    def __init__(self, **kwargs):
-        super(MenuBarButton, self).__init__(**kwargs)
-
-    def new_item():
-        global al
-        al.new_item()
-
-
-class MenuBar(BoxLayout):
-    pass
-
 
 class kivyFactory():
+
+    def __init__(self, **kwargs):
+        super(kivyFactory, self).__init__(**kwargs)
+        self.app = App.get_running_app()
 
     def gen_BoxLayout(self, orientation="vertical"):
         b = BoxLayout()
@@ -51,220 +39,178 @@ class kivyFactory():
             bl.add_widget(w)
         return bl
 
-    def gen_Label(self, text=""):
+    def gen_label(self, text=""):
         l = Label()
         l.text = text
         return l
 
-    def gen_button(self, text=""):
+    def gen_button(self, text="", button_type=""):
         b = Button()
         b.text = text
+
+        if button_type == "rarity":
+            b.bind(on_release=self.app.set_rarity)
+
         return b
 
 
-class ScrnCraftItem(Screen):
-    pass
+class rarityPopup(Popup):
+    def __init__(self, **kwargs):
+        super(rarityPopup, self).__init__(**kwargs)
+        self.app = App.get_running_app()
+
+        self.bCommon = self.app.kivyFactory.gen_button(
+            text="common", button_type="rarity")
+        self.bUncommon = self.app.kivyFactory.gen_button(
+            text="uncommon", button_type="rarity")
+        self.bRare = self.app.kivyFactory.gen_button(
+            text="rare", button_type="rarity")
+        self.bVeryRare = self.app.kivyFactory.gen_button(
+            text="very rare", button_type="rarity")
+        self.bLegendary = self.app.kivyFactory.gen_button(
+            text="legendary", button_type="rarity")
+        self.buttons = [self.bCommon, self.bUncommon,
+                        self.bRare, self.bVeryRare, self.bLegendary]
+        self.bl = self.app.kivyFactory.pack_v_box(self.buttons)
+        self.add_widget(self.bl)
 
 
-'''
-    global al
-    cur_item = ObjectProperty(al.current_item)
-    name = StringProperty('craft item')
+class attributePickerPopup(Popup):
+    def __init__(self, **kwargs):
+        super(attributePickerPopup, self).__init__(**kwargs)
+
+
+class attributesPopup(Popup):
+    def __init__(self, **kwargs):
+        super(attributesPopup, self).__init__(**kwargs)
+        self.gen_buttons()
+
+    def gen_buttons(self):
+        self.clear_widgets()
+        self.app = App.get_running_app()
+        kf = self.app.kivyFactory
+        self.buttons = []
+        max_attributes = arcana.attributes_by_rarity[self.app.lab.current_item.rarity]
+        i = 1
+        for attr in self.app.lab.magic_properties:
+            b = Button()
+            b.text = "attribute: " + str(i)
+            b.bind(on_release=self.app.gen_attribute_picker_popup)
+            self.buttons.append(b)
+
+            i += 1
+            if i > max_attributes:
+                break
+
+        self.bl = kf.pack_v_box(self.buttons)
+        if self.content != None:
+            self.content = self.bl
+        else:
+            self.add_widget(self.bl)
+
+
+class ScrnCrafting(Screen):
+
+    name = StringProperty("crafting")
+    id = StringProperty("crafting")
 
     def __init__(self, **kwargs):
-        super(ScrnCraftItem, self).__init__(**kwargs)
-        kf = kivyFactory()
-        blM = kf.gen_BoxLayout()
-        self.add_widget(blM)
+        super(ScrnCrafting, self).__init__(**kwargs)
+        self.app = App.get_running_app()
 
-        # Item Name
-        l_in = kf.gen_Label("Item Name")
-        t_in = TextInput()
-        t_in.bind(text=self.cur_item_name)
-        b_in = kf.pack_h_box(widgets=[l_in, t_in])
+        kf = self.app.kivyFactory
+
+        # Item name
+        self.lName = kf.gen_label(text="Item name")
+        self.tiName = TextInput()
+        self.tiName.bind(text=self.app.set_item_name)
+        self.blName = kf.pack_h_box(
+            [self.lName, self.tiName])
 
         # Item Description
-        l_id = kf.gen_Label("Item Description")
-        t_id = TextInput()
-        t_id.bind(text=self.cur_item_description)
-        b_id = kf.pack_h_box(widgets=[l_id, t_id])
+        self.lDescription = kf.gen_label(text="Item name")
+        self.tiDescription = TextInput()
+        self.tiDescription.bind(text=self.app.set_item_description)
+        self.blDescription = kf.pack_h_box(
+            [self.lDescription, self.tiDescription])
 
         # Consumable
-        l_ic = kf.gen_Label("Consumable")
-        t_ic = CheckBox()
-        t_ic.bind(active=self.cur_item_consumable)
-        b_ic = kf.pack_h_box(widgets=[l_ic, t_ic])
+        self.lConsumable = kf.gen_label(text="Consumable")
+        self.cbConsumable = CheckBox()
+        self.cbConsumable.bind(active=self.app.set_consumable)
+        self.blConsumable = kf.pack_h_box(
+            [self.lConsumable, self.cbConsumable])
 
         # Artifact
-        l_ia = kf.gen_Label("Artifact")
-        t_ia = CheckBox()
-        t_ia.bind(active=self.cur_item_artifact)
-        b_ia = kf.pack_h_box(widgets=[l_ia, t_ia])
+        self.lArtifact = kf.gen_label(text="Consumable")
+        self.cbArtifact = CheckBox()
+        self.cbArtifact.bind(active=self.app.set_artifact)
+        self.blArtifact = kf.pack_h_box(
+            [self.lArtifact, self.cbArtifact])
 
-        # Rarity
-        l_ra = kf.gen_Label("Rarity")
-        bt_ra = kf.gen_button("Rarity")
-        bt_ra.on_release = self.open_rarity_popup()
-        bt_ra.text = al.current_item.rarity_str()
-        b_ra = kf.pack_h_box(widgets=[l_ra, bt_ra])
+        # Rarity button
+        self.bRarity = kf.gen_button(text="rarity")
+        self.bRarity.bind(on_release=self.app.gen_rarity_popup)
 
-        # Load Main BoxLayout
-        widgets = [MenuBar(), b_in, b_id, b_ic, b_ia, b_ra]
-        for w in widgets:
-            blM.add_widget(w)
+        # Attributes
+        self.bAttributes = kf.gen_button(text="attributes")
+        self.bAttributes.bind(on_release=self.app.gen_attributes_popup)
 
-    def cur_item_name(self, *args):
-        al.current_item.name = args[1]
-
-    def cur_item_description(self, *args):
-        al.current_item.description = args[1]
-
-    def cur_item_consumable(self, *args):
-        al.current_item.is_consumable = args[1]
-
-    def cur_item_artifact(self, *args):
-        al.current_item.is_artifact = args[1]
-
-    def open_rarity_popup(self, *args):
-        rarPop = RarityPopup()
-        rarPop.open()
-'''
-
-
-class ScrnMain(Screen):
-    pass
-
-
-class ScrnSplash(Screen):
-    name = StringProperty("splash")
-
-    def __init__(self, **kwargs):
-        super(ScrnSplash, self).__init__(**kwargs)
-        bl = BoxLayout(orientation="vertical")
-        self.add_widget(bl)
-        lbl = Label(text="splash screen")
-        bl.add_widget(lbl)
-
-
-class RarityPopup(Popup):
-    def __init__(self, **kwargs):
-        super(RarityPopup, self).__init__(**kwargs)
-
-    def update_rarity(self, rarity):
-        global al
-        al.current_item.rarity = rarity
+        self.bl = kf.pack_v_box(
+            [self.blName, self.blDescription, self.blConsumable, self.blArtifact, self.bRarity, self.bAttributes])
+        self.add_widget(self.bl)
 
 
 class ScrnMgr(ScreenManager):
-    pass
-    # def __init__(self, **kwargs):
-    #    super(ScrnMgr, self).__init__(**kwargs)
-
-
-root_widget = Builder.load_string('''
-#:import FadeTransition kivy.uix.screenmanager.FadeTransition
-ScrnMgr:
-    transition: FadeTransition()
-    ScrnMain:
-    ScrnSplash:
-    ScrnCraftItem:
-
-<MenuBarButton>:
-    text_size: self.width, None
-    halign: 'center'
-    valign: 'center'
-
-<MenuBar>:
-    orientation: 'horizontal'
-    size_hint_y: None
-    size_y: 5
-    MenuBarButton:
-        text: 'Main'
-        on_release: app.root.current = 'main'
-    MenuBarButton:
-        text: "New Item"
-        on_release: self.new_item; app.root.current = 'craft item'
-
-<ScrnMain>:
-    name: "main"
-    BoxLayout:
-        orientation: "vertical"
-        MenuBar:
-        Label:
-            text: "Main Menu"
-<RarityPopup>:
-    on_dismiss: app.print_something('something')
-    BoxLayout:
-        orientation: "vertical"
-        Button:
-            text: "common"
-            on_release: root.update_rarity(1); root.dismiss()
-        Button:
-            text: "uncommon"
-            on_release: root.update_rarity(2); root.dismiss()
-        Button:
-            text: "rare"
-            on_release: root.update_rarity(3); root.dismiss()
-        Button:
-            text: "very rare"
-            on_release: root.update_rarity(4); root.dismiss()
-        Button:
-            text: "legendary"
-            on_release: root.update_rarity(5); root.dismiss()
-
-<ScrnCraftItem>:
-    name: "craft item orig"
-
-    BoxLayout:
-        orientation: "vertical"
-        MenuBar:
-        BoxLayout:
-            orientation: "horizontal"
-            Label:
-                text: "Item Name"
-            TextInput:
-                text: root.cur_item.name
-        BoxLayout:
-            orientation: "horizontal"
-            Label:
-                text: "Description"
-            TextInput:
-                text: root.cur_item.description
-        BoxLayout:
-            orientation: "horizontal"
-            Label:
-                text: "Consumable"
-            CheckBox:
-                text: root.cur_item.is_consumable
-        BoxLayout:
-            orientation: "horizontal"
-            Label:
-                text: "Artifact"
-            CheckBox:
-                text: root.cur_item.is_artifact
-        BoxLayout:
-            id: 'rarBoxLayout'
-            orientation: "horizontal"
-            Label:
-                text: "Rarity"
-            Button:
-                id: 'rarBtn'
-                text: app.root.curItemRar()
-                on_release: root.open_rarity_popup()
-
-
- ''')
+    def __init__(self, **kwargs):
+        super(ScrnMgr, self).__init__(**kwargs)
+        self.app = App.get_running_app()
 
 
 class ArcaneWorkshopApp(App):
-    global al
-    curItemRar = StringProperty(al.current_item.rarity_str)
+
+    def __init__(self, **kwargs):
+        super(ArcaneWorkshopApp, self).__init__(**kwargs)
+        self.lab = arcana.ArcaneLab()
+        self.kivyFactory = kivyFactory()
+        self.rarityPopup = rarityPopup()
+        self.ScrnMgr = ScrnMgr()
+        self.ScrnMgr.add_widget(ScrnCrafting())
+        self.ScrnMgr.current = "crafting"
+        self.attribtuesPopup = attributesPopup()
+        self.attribute_picker_popup = attributePickerPopup()
 
     def build(self):
-        return root_widget
+        return self.ScrnMgr
 
-    def print_something(self, text, **kwargs):
-        print(text)
+    def gen_rarity_popup(self, *args):
+        self.rarityPopup.open()
+
+    def set_rarity(self, *args):
+        self.lab.current_item.rarity = arcana.rarity_numbers[args[0].text]
+        self.ScrnMgr.screens[0].bRarity.text = args[0].text
+        self.rarityPopup.dismiss()
+
+    def set_item_name(self, *args):
+        self.lab.current_item.name = args[1]
+
+    def set_item_description(self, *args):
+        self.lab.current_item.description = args[1]
+
+    def set_consumable(self, *args):
+        self.lab.current_item.is_consumable = args[1]
+
+    def set_artifact(self, *args):
+        self.lab.current_item.is_artifact = args[1]
+
+    def gen_attributes_popup(self, *args):
+        self.attribtuesPopup.gen_buttons()
+        self.attribtuesPopup.open()
+
+    def gen_attribute_picker_popup(self, *args):
+        self.attribute_picker_popup.open()
 
 
-ArcaneWorkshopApp().run()
+if __name__ == "__main__":
+    aw = ArcaneWorkshopApp()
+    aw.run()
