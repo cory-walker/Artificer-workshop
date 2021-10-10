@@ -89,9 +89,9 @@ class MagicItem:
 class MagicItemPropertyFactory:
     def list_to_magic_item_property(lst):
         mi = MagicProperty()
-        mi.name = lst[0]
-        mi.level = lst[1]
-        mi.description = lst[2]
+        mi.name = str(lst[0])
+        mi.level = int(lst[1])
+        mi.description = str(lst[2])
         mi.req_attunement = bool(lst[3])
         if int(lst[4]) > 0:
             mi.bonuses["weapon"] = int(lst[4])
@@ -152,6 +152,14 @@ class ArcaneLab:
 
     def fetch_magic_properties(self, magic_item_name):
         return self.magic_items[magic_item_name].magic_properties
+
+    def fetch_magic_property_descriptions(self, level):
+        dct = {}
+        for mp in self.magic_properties.keys():
+            if self.magic_properties[mp].level == level:
+                dct[mp] = self.magic_properties[mp].description
+
+        return dct
 
     def magicItemBonus(self, magic_item_name, bonus_type):
         bon = 0

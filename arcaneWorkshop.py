@@ -78,15 +78,45 @@ class rarityPopup(Popup):
 class attributePickerPopup(Popup):
     def __init__(self, **kwargs):
         super(attributePickerPopup, self).__init__(**kwargs)
+        self.app = App.get_running_app()
+        self.bl = BoxLayout()
+        self.bl.orientation = "vertical"
+        self.add_widget(self.bl)
+        self.gen_buttons()
+        self.title = "Attributes"
+
+    def gen_buttons(self):
+        self.bl.clear_widgets()
+        dct = self.app.attribute_dct()
+        lst = list(dct.keys())
+        lst.sort()
+        if lst is None:
+            lst = []
+        for k in lst:
+            s = k + ": " + dct[k]
+            b = Button()
+            b.text = s
+            b.bind(width=lambda s, w: s.setter("text_size")(s, (w*0.98, None)))
+            b.bind(on_release=self.app.choose_attribute)
+            self.bl.add_widget(b)
+
+        b = Button()
+        b.text = "Cancel"
+        b.bind(on_release=self.dismiss)
+        self.bl.add_widget(b)
 
 
 class attributesPopup(Popup):
     def __init__(self, **kwargs):
         super(attributesPopup, self).__init__(**kwargs)
+        self.app = App.get_running_app()
+        self.bl = BoxLayout()
+        self.bl.orientation = "vertical"
+        self.add_widget(self.bl)
         self.gen_buttons()
+        self.title = "Attributes"
 
     def gen_buttons(self):
-        self.clear_widgets()
         self.app = App.get_running_app()
         kf = self.app.kivyFactory
         self.buttons = []
@@ -95,6 +125,7 @@ class attributesPopup(Popup):
         for attr in self.app.lab.magic_properties:
             b = Button()
             b.text = "attribute: " + str(i)
+            b.id = "attribute_" + str(i)
             b.bind(on_release=self.app.gen_attribute_picker_popup)
             self.buttons.append(b)
 
@@ -102,11 +133,14 @@ class attributesPopup(Popup):
             if i > max_attributes:
                 break
 
-        self.bl = kf.pack_v_box(self.buttons)
-        if self.content != None:
-            self.content = self.bl
-        else:
-            self.add_widget(self.bl)
+        bDismiss = Button()
+        bDismiss.text = "Cancel"
+        bDismiss.on_release = self.dismiss
+        self.buttons.append(bDismiss)
+
+        self.bl.clear_widgets()
+        for b in self.buttons:
+            self.bl.add_widget(b)
 
 
 class ScrnCrafting(Screen):
@@ -177,8 +211,10 @@ class ArcaneWorkshopApp(App):
         self.ScrnMgr = ScrnMgr()
         self.ScrnMgr.add_widget(ScrnCrafting())
         self.ScrnMgr.current = "crafting"
-        self.attribtuesPopup = attributesPopup()
+        self.attributesPopup = attributesPopup()
         self.attribute_picker_popup = attributePickerPopup()
+
+        self.attribute_button_clicked = ""
 
     def build(self):
         return self.ScrnMgr
@@ -189,6 +225,7 @@ class ArcaneWorkshopApp(App):
     def set_rarity(self, *args):
         self.lab.current_item.rarity = arcana.rarity_numbers[args[0].text]
         self.ScrnMgr.screens[0].bRarity.text = args[0].text
+        self.attributesPopup.gen_buttons()
         self.rarityPopup.dismiss()
 
     def set_item_name(self, *args):
@@ -204,11 +241,18 @@ class ArcaneWorkshopApp(App):
         self.lab.current_item.is_artifact = args[1]
 
     def gen_attributes_popup(self, *args):
-        self.attribtuesPopup.gen_buttons()
-        self.attribtuesPopup.open()
+        self.attributesPopup.open()
 
     def gen_attribute_picker_popup(self, *args):
+        self.attribute_picker_popup.gen_buttons()
+        self.attribute_button_clicked = args[0].id
         self.attribute_picker_popup.open()
+
+    def attribute_dct(self):
+        return self.lab.fetch_magic_property_descriptions(1)
+
+    def choose_attribute(self, *args):
+        pass
 
 
 if __name__ == "__main__":
