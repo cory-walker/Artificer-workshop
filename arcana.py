@@ -79,7 +79,7 @@ class MagicItem:
         self.rarity = rarity  # int
         self.is_consumable = is_consumable  # boolean
         self.is_artifact = is_artifact  # boolean
-        self.magic_properties = magic_properties  # M<agicProperty
+        self.magic_properties = magic_properties  # MagicProperty
         self.magic_materials = magic_materials  # MagicMaterial
 
     def rarity_str(self):
@@ -160,6 +160,13 @@ class ArcaneLab:
                 dct[mp] = self.magic_properties[mp].description
 
         return dct
+
+    def fetch_magic_properties_list(self, level):
+        lst = []
+        for mp in self.magic_properties.keys():
+            if self.magic_properties[mp].level == level:
+                lst.append(mp)
+        return lst
 
     def magicItemBonus(self, magic_item_name, bonus_type):
         bon = 0

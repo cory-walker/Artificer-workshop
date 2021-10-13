@@ -1,4 +1,5 @@
 #import kivy
+from itertools import groupby
 import arcana
 
 from kivy.app import App
@@ -12,6 +13,8 @@ from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 from kivy.uix.checkbox import CheckBox
 from kivy.uix.popup import Popup
+from kivy.uix.scrollview import ScrollView
+from kivy.uix.gridlayout import GridLayout
 
 
 class kivyFactory():
@@ -79,14 +82,17 @@ class attributePickerPopup(Popup):
     def __init__(self, **kwargs):
         super(attributePickerPopup, self).__init__(**kwargs)
         self.app = App.get_running_app()
-        self.bl = BoxLayout()
-        self.bl.orientation = "vertical"
-        self.add_widget(self.bl)
-        self.gen_buttons()
         self.title = "Attributes"
+        self.scrl = ScrollView()
+        self.gridLayout = GridLayout()
+        self.gridLayout.cols = 1
+        self.gridLayout.size_hint_y = None
+        self.scrl.add_widget(self.gridLayout)
+        self.add_widget(self.scrl)
+        self.gen_buttons()
 
     def gen_buttons(self):
-        self.bl.clear_widgets()
+        self.gridLayout.clear_widgets()
         dct = self.app.attribute_dct()
         lst = list(dct.keys())
         lst.sort()
@@ -96,14 +102,18 @@ class attributePickerPopup(Popup):
             s = k + ": " + dct[k]
             b = Button()
             b.text = s
+            b.id = StringProperty(k)
+            b.size_hint_y = None
             b.bind(width=lambda s, w: s.setter("text_size")(s, (w*0.98, None)))
             b.bind(on_release=self.app.choose_attribute)
-            self.bl.add_widget(b)
+            self.gridLayout.add_widget(b)
 
         b = Button()
         b.text = "Cancel"
+        b.size_hint_y = None
         b.bind(on_release=self.dismiss)
-        self.bl.add_widget(b)
+        self.gridLayout.add_widget(b)
+        self.gridLayout.height = self.gridLayout.minimum_height
 
 
 class attributesPopup(Popup):
@@ -125,8 +135,8 @@ class attributesPopup(Popup):
         for attr in self.app.lab.magic_properties:
             b = Button()
             b.text = "attribute: " + str(i)
-            b.id = "attribute_" + str(i)
             b.bind(on_release=self.app.gen_attribute_picker_popup)
+            b.button_type = "attribute"
             self.buttons.append(b)
 
             i += 1
@@ -136,6 +146,7 @@ class attributesPopup(Popup):
         bDismiss = Button()
         bDismiss.text = "Cancel"
         bDismiss.on_release = self.dismiss
+        bDismiss.button_type = "cancel"
         self.buttons.append(bDismiss)
 
         self.bl.clear_widgets()
@@ -160,6 +171,7 @@ class ScrnCrafting(Screen):
         self.tiName.bind(text=self.app.set_item_name)
         self.blName = kf.pack_h_box(
             [self.lName, self.tiName])
+        self.blName.name = "boxlayout name"
 
         # Item Description
         self.lDescription = kf.gen_label(text="Item name")
@@ -167,6 +179,7 @@ class ScrnCrafting(Screen):
         self.tiDescription.bind(text=self.app.set_item_description)
         self.blDescription = kf.pack_h_box(
             [self.lDescription, self.tiDescription])
+        self.blDescription.name = "boxLayout description"
 
         # Consumable
         self.lConsumable = kf.gen_label(text="Consumable")
@@ -174,6 +187,7 @@ class ScrnCrafting(Screen):
         self.cbConsumable.bind(active=self.app.set_consumable)
         self.blConsumable = kf.pack_h_box(
             [self.lConsumable, self.cbConsumable])
+        self.blConsumable.name = "boxlayout consumable"
 
         # Artifact
         self.lArtifact = kf.gen_label(text="Consumable")
@@ -181,17 +195,21 @@ class ScrnCrafting(Screen):
         self.cbArtifact.bind(active=self.app.set_artifact)
         self.blArtifact = kf.pack_h_box(
             [self.lArtifact, self.cbArtifact])
+        self.blArtifact.name = "boxlayout artifact"
 
         # Rarity button
         self.bRarity = kf.gen_button(text="rarity")
         self.bRarity.bind(on_release=self.app.gen_rarity_popup)
+        self.bRarity.name = "button rarity"
 
         # Attributes
         self.bAttributes = kf.gen_button(text="attributes")
         self.bAttributes.bind(on_release=self.app.gen_attributes_popup)
+        self.bAttributes.name = "attributes button"
 
         self.bl = kf.pack_v_box(
             [self.blName, self.blDescription, self.blConsumable, self.blArtifact, self.bRarity, self.bAttributes])
+        self.bl.name = "boxlayout screen"
         self.add_widget(self.bl)
 
 
@@ -209,11 +227,11 @@ class ArcaneWorkshopApp(App):
         self.kivyFactory = kivyFactory()
         self.rarityPopup = rarityPopup()
         self.ScrnMgr = ScrnMgr()
-        self.ScrnMgr.add_widget(ScrnCrafting())
+        self.ScrnCrafting = ScrnCrafting()
+        self.ScrnMgr.add_widget(self.ScrnCrafting)
         self.ScrnMgr.current = "crafting"
         self.attributesPopup = attributesPopup()
         self.attribute_picker_popup = attributePickerPopup()
-
         self.attribute_button_clicked = ""
 
     def build(self):
@@ -245,14 +263,40 @@ class ArcaneWorkshopApp(App):
 
     def gen_attribute_picker_popup(self, *args):
         self.attribute_picker_popup.gen_buttons()
-        self.attribute_button_clicked = args[0].id
+        self.attribute_button_clicked = args[0].text
         self.attribute_picker_popup.open()
 
     def attribute_dct(self):
         return self.lab.fetch_magic_property_descriptions(1)
 
+    def refresh_current_item_magic_properties(self):
+        self.lab.current_item.magic_properties = []
+
+        for b in self.attributesPopup.bl.children:
+            if b.text in self.lab.magic_properties.keys():
+                self.lab.current_item.magic_properties.append(b.text)
+
     def choose_attribute(self, *args):
-        pass
+        chosen_attribute = args[0].id
+        for attrBtn in self.attributesPopup.bl.children:
+            if attrBtn.text == self.attribute_button_clicked:
+                attrBtn.text = str(chosen_attribute.defaultvalue)
+
+        self.refresh_current_item_magic_properties()
+        l = self.lab.fetch_magic_properties_list(1)
+        alst = []
+        for p in self.lab.current_item.magic_properties:
+            if p in l:
+                alst.append(p)
+
+        alst.sort()
+        self.ScrnCrafting.bAttributes.text = "Attributes: " + ", ".join(alst)
+
+        self.attribute_picker_popup.dismiss()
+
+        # for c in self.ScrnCrafting.bl.children:
+        #    if c.name == "attributes button":
+        #        c.text = "Attributes: " + self.attributes_list()
 
 
 if __name__ == "__main__":
