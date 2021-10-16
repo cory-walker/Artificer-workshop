@@ -1,5 +1,7 @@
 #import kivy
 from itertools import groupby
+
+from kivy.uix.behaviors import button
 import arcana
 
 from kivy.app import App
@@ -95,9 +97,23 @@ class attributePickerPopup(Popup):
         self.gridLayout.clear_widgets()
         dct = self.app.attribute_dct()
         lst = list(dct.keys())
+
+        curPropList = self.app.lab.current_item.magic_properties
+
+        for i in lst:
+            if i in curPropList:
+                lst.remove(i)
+
         lst.sort()
         if lst is None:
             lst = []
+
+        b = Button()
+        b.text = "Cancel"
+        b.size_hint_y = None
+        b.bind(on_release=self.dismiss)
+        self.gridLayout.add_widget(b)
+
         for k in lst:
             s = k + ": " + dct[k]
             b = Button()
@@ -108,40 +124,56 @@ class attributePickerPopup(Popup):
             b.bind(on_release=self.app.choose_attribute)
             self.gridLayout.add_widget(b)
 
-        b = Button()
-        b.text = "Cancel"
-        b.size_hint_y = None
-        b.bind(on_release=self.dismiss)
-        self.gridLayout.add_widget(b)
         self.gridLayout.height = self.gridLayout.minimum_height
 
 
-class attributesPopup(Popup):
-    def __init__(self, **kwargs):
-        super(attributesPopup, self).__init__(**kwargs)
+class magicPropertiesPopup(Popup):
+
+    property_type = StringProperty("")
+
+    def __init__(self, property_type, **kwargs):
+        super(magicPropertiesPopup, self).__init__(**kwargs)
         self.app = App.get_running_app()
         self.bl = BoxLayout()
         self.bl.orientation = "vertical"
         self.add_widget(self.bl)
         self.gen_buttons()
-        self.title = "Attributes"
+        self.title = property_type
+        self.property_type = property_type
+
+    def label_text(self):
+        return self.property_type[:-1].replace("properties", "property") + ": "
 
     def gen_buttons(self):
-        self.app = App.get_running_app()
         kf = self.app.kivyFactory
         self.buttons = []
-        max_attributes = arcana.attributes_by_rarity[self.app.lab.current_item.rarity]
+
+        max_properties = 0
+
+        if self.property_type == 'Attributes':
+            max_properties = arcana.attributes_by_rarity[self.app.lab.current_item.rarity]
+        elif self.property_type == 'Minor properties':
+            max_properties = arcana.minor_properties_by_rarity[self.app.lab.current_item.rarity]
+        elif self.property_type == 'Major properties':
+            max_properties = arcana.major_properties_by_rarity[self.app.lab.current_item.rarity]
+        elif self.property_type == 'Minor detriments':
+            max_properties = arcana.minor_detriments_by_rarity[self.app.lab.current_item.rarity]
+        elif self.property_type == 'Major detriments':
+            max_properties = arcana.major_detriments_by_rarity[self.app.lab.current_item.rarity]
+
         i = 1
         for attr in self.app.lab.magic_properties:
-            b = Button()
-            b.text = "attribute: " + str(i)
-            b.bind(on_release=self.app.gen_attribute_picker_popup)
-            b.button_type = "attribute"
-            self.buttons.append(b)
-
-            i += 1
-            if i > max_attributes:
+            if i > max_properties:
                 break
+
+            b = Button()
+            b.text = self.label_text() + str(i)
+            b.size_hint_y = None
+            if self.property_type == 'Attributes':
+                b.bind(on_release=self.app.gen_attribute_picker_popup)
+                b.button_type = "attribute"
+            self.buttons.append(b)
+            i += 1
 
         bDismiss = Button()
         bDismiss.text = "Cancel"
@@ -230,7 +262,8 @@ class ArcaneWorkshopApp(App):
         self.ScrnCrafting = ScrnCrafting()
         self.ScrnMgr.add_widget(self.ScrnCrafting)
         self.ScrnMgr.current = "crafting"
-        self.attributesPopup = attributesPopup()
+        self.attributesPopup = magicPropertiesPopup(
+            "Attributes")  # attributesPopup()
         self.attribute_picker_popup = attributePickerPopup()
         self.attribute_button_clicked = ""
 
