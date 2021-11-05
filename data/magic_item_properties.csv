@@ -1,114 +1,99 @@
-﻿Name,Level,description,requires attunement,weapon bonus,ac bonus,spell bonus,Cantrips,Spell levels once a day,Spell levels 3 times a day,Spell levels infinte times a day,Damage d6,Damage type
-Unbreakable,1,The magic item cannot be harmed or damaged through non-magical means. ,FALSE,0,0,0,0,0,0,0,0,0
-Drawing blows,1,You can use your reaction to redirect a successful attack made to an adjacent target to you instead,FALSE,0,0,0,0,0,0,0,0,0
-Arcane script,1,"Symbols, writing, or a small area of the magic item softly glows, producing dim light for a one foot radius",FALSE,0,0,0,0,0,0,0,0,0
-Arcane sensation,1,"When you first touch the magic item, you feel a predetermined sensation chosen by it's crafter",FALSE,0,0,0,0,0,0,0,0,0
-Gleaming,1,"The magic item is always clean. dirt, grime, or any sullying material sheds off of the object",FALSE,0,0,0,0,0,0,0,0,0
-Moon touched,1,The magic item sheds dim light in a ten foot radius when in darkness,FALSE,0,0,0,0,0,0,0,0,0
-Cantrip immunity,1,"The character attuned to this item is granted immunity from all effects and damage for a predetermined spell of level one or lower, while wearing or touching the item",TRUE,0,0,0,0,0,0,0,0,0
-Cantrip casting,1,The magic item's weilder can use the object to cast a predetermined cantrip,FALSE,0,0,0,1,0,0,0,0,0
-Easily lost,1,The magic item and any of it's contents are invisible when worn,FALSE,0,0,0,0,0,0,0,0,0
-Lost but not forgotten,1,The magic item and any of it's contents are invisible when worn. The character attuned to the item can sense it's direction and exact distance from themselves,TRUE,0,0,0,0,0,0,0,0,0
-Spell level once a day,1,"Adds one spell level to the ""once a day"" spell level pool",FALSE,0,0,0,0,1,0,0,0,0
-Arcane focus,1,The magic item is an arcane focus for a predetermined class,FALSE,0,0,0,0,0,0,0,0,0
-Universal focus,1,The magic item is an arcane focus for the character attuned to it,TRUE,0,0,0,0,0,0,0,0,0
-Caster's choice,1,"Any spells the magic item is capable of being used to cast also become known spells to the character attuned to this item, so long as they are a spell caster and so long as they are attuned to it.",TRUE,0,0,0,0,0,0,0,0,0
-Glimmering,1,The magic items appears to be a really valuable object,FALSE,0,0,0,0,0,0,0,0,0
-Shoddy,1,The magic item appears to be a mundane or worthless object,FALSE,0,0,0,0,0,0,0,0,0
-On off switch,1,The character attuned to this item can use a bonus action to activate or deactivate persistant properties of the magic item,TRUE,0,0,0,0,0,0,0,0,0
-A little luck,1,"The character attuned to this item is granted advantage to a predetermined skill or ability check when opposing a predetermined race or creature type, while wearing or touching the item",TRUE,0,0,0,0,0,0,0,0,0
-Two spell levels once a day,2,"Adds two spell level to the ""once a day"" spell level pool",FALSE,0,0,0,0,2,0,0,0,0
-One spell level thrice a day,2,"Adds one spell level to the ""three times a day"" spell level pool",FALSE,0,0,0,0,0,1,0,0,0
-Cantrips ahoy,2,The magic item's weilder can use the object to cast one of three predetermined cantrips,FALSE,0,0,0,0,0,0,0,0,0
-Plus one attack,2,This magic item grants the weilder +1 to their attacks and damage rolls when using this item as the weapon,FALSE,1,0,0,0,0,0,0,0,0
-Plus one armor,2,This magic item grants the weilder +1 to their AC when worn,FALSE,0,1,0,0,0,0,0,0,0
-Plus one spell casting,2,This magic item grants the weilder +1 to the spell attach and damage rolls when using this item as an arcane focus,FALSE,0,0,1,0,0,0,0,0,0
-Flight,2,The magic item can fly with a fly speed of 30',FALSE,0,0,0,0,0,0,0,0,0
-Healing boost,2,The magic item adds 1d6 healing to healing spells cast when the character attuned to the item uses the item as an arcane focus,TRUE,0,0,0,0,0,0,0,0,0
-Adamantine weave,2,Critical hits against the wearer of this item count as normal hits,FALSE,0,0,0,0,0,0,0,0,0
-Auto stabilization,2,The wearer is stabilized if their health drops to or below zero,FALSE,0,0,0,0,0,0,0,0,0
-Productive crafting,2,"When the character attuned to this item uses a workweek of downtime to craft, an additional workweek's of production may be added",TRUE,0,0,0,0,0,0,0,0,0
-Bigger on the inside,2,The magic item now contains a 64 cubic foot extra dimensional space,FALSE,0,0,0,0,0,0,0,0,0
-Lucky item,2,The character attuned to this item gains advantage on a predetermined skill or ability check,TRUE,0,0,0,0,0,0,0,0,0
-Disease immunity,2,the character attuned to this item gains immunity to disease while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Blind immunity,2,the character attuned to this item gains immunity to the blinded condition while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Charm immunity,2,the character attuned to this item gains immunity to the charmed condition while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Deafened immunity,2,the character attuned to this item gains immunity to the deafened condition while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Frightened immunity,2,the character attuned to this item gains immunity to the firghtened condition while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Paralyzed immunity,2,the character attuned to this item gains immunity to the paralyzed condition while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Petrified immunity,2,the character attuned to this item gains immunity to the petrified condition while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Poisoned immunity,2,the character attuned to this item gains immunity to the poisoned condition while touching it or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Weakening attacks,2,"When damaged by this magic item, the victim cannot regain health until the start of this item's weilder's next turn",FALSE,0,0,0,0,0,0,0,0,0
-Dark vision,2,This item grants an additional 60' of darkvision when used,FALSE,0,0,0,0,0,0,0,0,0
-Telescopic vision,2,This item allows the user to use a bonus action to see a chosen target up to 60' away as if they are right in front of it.,FALSE,0,0,0,0,0,0,0,0,0
-Greater smell,2,This item grants advantage on perception checks that rely on a sense of smell,FALSE,0,0,0,0,0,0,0,0,0
-Greater hearing,2,This item grants advantage on perception checks that rely on a sense of hearing,FALSE,0,0,0,0,0,0,0,0,0
-Slashing resistance,2,The character attuned to this item gains resistance to Slashing damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Piercing resistance,2,The character attuned to this item gains resistance to Piercing damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Bludgeoning resistance,2,The character attuned to this item gains resistance to Bludgeoning damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Poison resistance,2,The character attuned to this item gains resistance to Poison damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Acid resistance,2,The character attuned to this item gains resistance to Acid damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Fire resistance,2,The character attuned to this item gains resistance to Fire damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Cold resistance,2,The character attuned to this item gains resistance to Cold damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Radiant resistance,2,The character attuned to this item gains resistance to Radiant damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Necrotic resistance,2,The character attuned to this item gains resistance to Necrotic damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Lightning resistance,2,The character attuned to this item gains resistance to Lightning damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Thunder resistance,2,The character attuned to this item gains resistance to Thunder damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Force resistance,2,The character attuned to this item gains resistance to Force damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Pyschic resistance,2,The character attuned to this item gains resistance to Pyschic damage while touching this item or it is worn,TRUE,0,0,0,0,0,0,0,0,0
-Slashing damage,2,The character attuned to this item adds 1d6 Slashing damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,1
-Piercing damage,2,The character attuned to this item adds 1d6 Piercing damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,2
-Bludgeoning damage,2,The character attuned to this item adds 1d6 Bludgeoning damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,3
-Poison damage,2,The character attuned to this item adds 1d6 Poison damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,4
-Acid damage,2,The character attuned to this item adds 1d6 Acid damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,5
-Fire damage,2,The character attuned to this item adds 1d6 Fire damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,6
-Cold damage,2,The character attuned to this item adds 1d6 Cold damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,7
-Radiant damage,2,The character attuned to this item adds 1d6 Radiant damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,8
-Necrotic damage,2,The character attuned to this item adds 1d6 Necrotic damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,9
-Lightning damage,2,The character attuned to this item adds 1d6 Lightning damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,10
-Thunder damage,2,The character attuned to this item adds 1d6 Thunder damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,11
-Force damage,2,The character attuned to this item adds 1d6 Force damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,12
-Pyschic damage,3,The character attuned to this item adds 1d6 Pyschic damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,1,13
-Major Slashing damage,3,The character attuned to this item adds 4d6 Slashing damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,1
-Major Piercing damage,3,The character attuned to this item adds 4d6 Piercing damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,2
-Major Bludgeoning damage,3,The character attuned to this item adds 4d6 Bludgeoning damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,3
-Major Poison damage,3,The character attuned to this item adds 4d6 Poison damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,4
-Major Acid damage,3,The character attuned to this item adds 4d6 Acid damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,5
-Major Fire damage,3,The character attuned to this item adds 4d6 Fire damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,6
-Major Cold damage,3,The character attuned to this item adds 4d6 Cold damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,7
-Major Radiant damage,3,The character attuned to this item adds 4d6 Radiant damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,8
-Major Necrotic damage,3,The character attuned to this item adds 4d6 Necrotic damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,9
-Major Lightning damage,3,The character attuned to this item adds 4d6 Lightning damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,10
-Major Thunder damage,3,The character attuned to this item adds 4d6 Thunder damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,11
-Major Force damage,3,The character attuned to this item adds 4d6 Force damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,12
-Major Pyschic damage,3,The character attuned to this item adds 4d6 Pyschic damage when using this item as a weapon,TRUE,0,0,0,0,0,0,0,4,13
-Slashing immunity,3,The character attuned to this item is immune to Slashing damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Piercing immunity,3,The character attuned to this item is immune to Piercing damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Bludgeoning immunity,3,The character attuned to this item is immune to Bludgeoning damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Poison immunity,3,The character attuned to this item is immune to Poison damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Acid immunity,3,The character attuned to this item is immune to Acid damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Fire immunity,3,The character attuned to this item is immune to Fire damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Cold immunity,3,The character attuned to this item is immune to Cold damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Radiant immunity,3,The character attuned to this item is immune to Radiant damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Necrotic immunity,3,The character attuned to this item is immune to Necrotic damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Lightning immunity,3,The character attuned to this item is immune to Lightning damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Thunder immunity,3,The character attuned to this item is immune to Thunder damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Force immunity,3,The character attuned to this item is immune to Force damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Pyschic immunity,3,The character attuned to this item is immune to Pyschic damage while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Seven spell levels once a day,3,"Adds seven spell levels to the ""once a day"" spell level pool",TRUE,0,0,0,0,7,0,0,0,0
-Four spell levels thrice a day,3,"Adds four spell levels to the ""three times a day"" spell level pool",TRUE,0,0,0,0,0,4,0,0,0
-Two spell levels infinite times a day,3,"Adds two spell levels to the ""infinite times a day"" spell level pool",TRUE,0,0,0,0,0,0,2,0,0
-Plus three attack,3,This magic item grants the weilder +3 to their attacks and damage rolls when using this item as the weapon,FALSE,3,0,0,0,0,0,0,0,0
-Plus three armor,3,This magic item grants the weilder +3 to their AC when worn,FALSE,0,3,0,0,0,0,0,0,0
-Plus three spell casting,3,This magic item grants the weilder +3 to the spell attach and damage rolls when using this item as an arcane focus,FALSE,0,0,3,0,0,0,0,0,0
-Sentient,3,"This magic item has a sentience and can communicate with the character that is attuned to it via a telepathic bond. It has an Intelligence, Wisdom, and Charisma of 12 and is proficient in Wisdom saving throws. The item also has blindsight for a 10' radius. This item can take ""Use magic item"" action to use it's own properties on the attuned character's turn.",TRUE,0,0,0,0,0,0,0,0,0
-Animated,3,"This magic item gains a speed of 30 and can take appropriate physical actions based on it's form. If the item is not sentient, then the character attuned to it may use their bonus action to direct it",TRUE,0,0,0,0,0,0,0,0,0
-Boosted Intelligence,3,The character attuned to this item gains +2 to their Intelligence and their maximum is increased by 2.,TRUE,0,0,0,0,0,0,0,0,0
-Boosted Strength,3,The character attuned to this item gains +2 to their Strength and their maximum is increased by 2.,TRUE,0,0,0,0,0,0,0,0,0
-Boosted Charisma,3,The character attuned to this item gains +2 to their Charisma and their maximum is increased by 2.,TRUE,0,0,0,0,0,0,0,0,0
-Boosted Wisdom,3,The character attuned to this item gains +2 to their Wisdom and their maximum is increased by 2.,TRUE,0,0,0,0,0,0,0,0,0
-Boosted Constitution,3,The character attuned to this item gains +2 to their Constitution and their maximum is increased by 2.,TRUE,0,0,0,0,0,0,0,0,0
-Boosted Dexterity,3,The character attuned to this item gains +2 to their Dexterity and their maximum is increased by 2.,TRUE,0,0,0,0,0,0,0,0,0
-Exhaustion immunity,3,The character attuned to this item is immune to exhaustion while touching or wearing this item,TRUE,0,0,0,0,0,0,0,0,0
-Major healing,3,The character attuned to this item adds 4d6 healing when casting healing spells using this item as an arcane focus,TRUE,0,0,0,0,0,0,0,0,0
-Awesome crafting,3,"When the character attuned to this item uses a workweek of downtime to craft, an additional three workweek's of production may be added",TRUE,0,0,0,0,0,0,0,0,0
+Property type,Name,Description,Req. Attunement,Armour,Ring,Rod/Staff/Wand,Weapon,Wonderous,plus_attack,plus_ac,plus_spell
+1,Unbreakable,The item does not take damage.,0,1,1,1,1,1,0,0,0
+1,Guardian,The attuned may use their reaction to redirct an attack made against an adjacent creature to themselves.,1,1,1,1,1,1,0,0,0
+1,Sensational magic,"When a creature first touches the object, they feel a predetermined sensation",0,1,1,1,1,1,0,0,0
+1,Unlikely save,The attuned recieves +1 to their saving throws,1,1,1,1,0,1,0,0,0
+1,Skillful edge,The attuned recieves +1 to a specific ability check when performing a specific action,1,1,1,1,0,1,0,0,0
+1,Gleaming,The item is always clean,0,1,1,1,1,1,0,0,0
+1,Known weaknesses,The attuned recieves +1 to a specific ability check when competing against a specific race or creature type,1,1,1,1,0,1,0,0,0
+1,A glimmer of magic,The weilder can use the magic item to cast one of two predetermined cantrips,0,1,1,1,1,1,0,0,0
+1,Moonlit,The item casts dim light for a 10' radius when in darkness,0,1,1,1,1,1,0,0,0
+1,Light warning,The item cast dim light for a 10' radius when a creature of a specific creature type or race is within 120',0,1,1,1,1,1,0,0,0
+1,Mark of the apprentice,The Item can be used to cast a predetermined level one spell once per day. The level of the spell can be increased when conjoining the effects of other similar properties,0,1,1,1,1,1,0,0,0
+1,Mark of the defender,The item grants immunity to a specific level 1 spell or cantrip while worn. This spell cannot be cast again until after a long rest,0,1,1,0,0,1,0,0,0
+1,On/Off command,The weilder can use a bonus action to speak a command to activate or deactivate a predetermined and persitiant property of this item,0,1,1,1,1,1,0,0,0
+1,Easily lost,The item is invisible while worn or sheathed,0,1,1,1,1,1,0,0,0
+1,Arcane focus,The item can be used as an arcane focus,1,1,1,1,1,1,0,0,0
+1,Valuable,The item appears twice as valuable,0,1,1,1,1,1,0,0,0
+1,Rubbish,The item appears to be worthless,0,1,1,1,1,1,0,0,0
+1,Tattoo,The item is tattooed onto the caster,1,1,1,0,0,1,0,0,0
+2,Mark of the learned,The item can be used to cast a predetermined level 2 spell. The level of the spell can be increased when conjoining the effects of other similar properties. This spell cannot be cast again until after a long rest,0,1,1,1,1,1,0,0,0
+2,Flying objects,The item gains a flying speed of 50. It will hover inplace if left and can be towed. It has a maximum carrying capacity of 400lbs but it's flying speed becomes 30' if it is carrying over 200 lbs.,0,0,0,0,0,1,0,0,0
+2,Give it wings,"While wearing the item, the attuned gains a flying speed equal to their walking speed. They can use the item to fly for up to four hours, all at once or in several shorter flights, each one using a minimium of 1 minute from the duration. If you are flying when the duration expires, you descend at a rate of 30 feet per round until you land. The Item regains 2 hours of dlying capability for every 12 hours they aren't in use.",1,1,0,0,0,1,0,0,0
+2,Deep rest,The attuned regains an additional level of exhaustion after a long rest,1,1,1,0,0,1,0,0,0
+1,Comfortable armour,The armour is very comfortable. The wearer can rest in it without any of the normal detrimental effects,0,1,0,0,0,0,0,0,0
+2,Darkvision,"The wearer gains Darkvision for 60'. If they already have Darkvision, wearing this item will extend it an additional 60'",0,1,1,0,0,1,0,0,0
+2,Telescopic vision,The wearer can see things up to 120' away as if they were directly infront of them so long as they have a direct line of sight,0,1,1,0,0,1,0,0,0
+2,Telescopic smell,The wearer can use the magic item to smell an area up to 120' away as if they were within it.,0,1,1,1,1,1,0,0,0
+2,Minor benefit Attack bonus,Gain a +1 to your attack and damage rolls while using this item,0,0,0,0,1,0,1,0,0
+2,Minor benefit AC bonus,Gain +1 AC while wearing this item,0,1,0,0,0,0,0,1,0
+2,Minor benefit Spell bonus,Gain +1 to your Spell attack and Spell Save DCs while using this item as an arcane focus,0,1,1,1,1,1,0,0,1
+2,Skillful,The attuned gains +5 to a specific check when performing a specific action,1,1,1,0,0,1,0,0,0
+2,Advantage seeker,The attuned gains advantage to a specific check when performing a specific action,1,1,1,0,0,1,0,0,0
+2,Fast worker,The attuned performs an additional work week's worth of work per week worked while crafting magical items,1,1,1,0,0,1,0,0,0
+2,Necrotic touch,"On a successful attack while using this item as a weapon, the victim cannot regain health until the start of your next turn",0,0,0,0,1,0,0,0,0
+1,Prismatic,The attuned may use a bonus action to switch a persitant property of this item to another predetermined one of the same property type,1,1,1,1,1,1,0,0,0
+1,The spice of life,The item is capable of casting an additional predetermined spell of the same level as any it is already capable of casting,0,1,1,1,1,1,0,0,0
+1,Taking control,The attuned casts the spells from the item instead of taking the use item action,1,1,1,1,1,1,0,0,0
+2,Mark of the steady,The item can be used to cast a predetermined level 1 spell. The level of the spell can be increased when conjoining the effects of other similar properties. This spell can be cast up to 3 times between long rests,0,1,1,1,1,1,0,0,0
+2,Damage dealer,This item deals an additional 1d6 damage of a predetermined type on a successfull attack while being used as a weapon,0,0,0,0,1,0,0,0,0
+2,Gift of health,Spells restore an additional 1d4 health when this item is used as the arcane focus to cast them,0,1,1,1,1,1,0,0,0
+2,Bigger on the inside,"The item contains 64' of cubic space. An opening must be present in order to access this space. It cannot hold more than 500 lbs. This adds 15 lbs to the weight of the item regardless of it's contents. If the item is overloaded, pierced, or torn, it ruptures and is destroyed. and it's contents are scattered to the astral plane. Placing this item inside an extradimensional space instantly destroys both item sand opens a gate to the Astral Plane. The gate originates where one item was placed inside the other. Any creature within 10' of the gate is sucked through it to a random location on the astral plane. The gate then closes. The gate is one-way only and can't be reopened",0,1,1,1,1,1,0,0,0
+2,Resistance,The attuned grants resistance to a predetermined damage type while wearing this item,1,1,1,0,0,1,0,0,0
+2,Cantrips galore,The weilder can use this item to cast one of six predetermined cantrips,0,1,1,1,1,1,0,0,0
+2,Adamantine,The wearer cannot be crit against,0,1,0,0,0,0,0,0,0
+2,Slayer,Gain +3 to your attack and damage rolls when using this item as a weapon against a predetermined creature type,0,0,0,0,1,0,0,0,0
+3,Mark of the Maji,The item can be used to cast predetermined spells whose combined number of levels equals seven. The level of the spells can be increased when conjoining the effects of other similar properties. This spell cannot be cast again until after a long rest,0,1,1,1,1,1,0,0,0
+3,Mark of the steadfast,The item can be used to cast predetermined spells whose combined number of levels equals four. The level of the spells can be increased when conjoining the effects of other similar properties. The spells in this list can be cast a combined times of three between long rests,0,1,1,1,1,1,0,0,0
+3,Mark of the cantrip master,The weilder can use the magic item to cast one of 21 predetermined cantrips,0,1,1,1,1,1,0,0,0
+3,Symbol of great Strength,The attuned gains +2 to Strength while touching this item. Their maxumum is increased to 22,1,1,1,1,1,1,0,0,0
+3,Symbol of great Constitution,The attuned gains +2 to Constitution while touching this item. Their maxumum is increased to 22,1,1,1,1,1,1,0,0,0
+3,Symbol of great Dexterity,The attuned gains +2 to Dexterity while touching this item. Their maxumum is increased to 22,1,1,1,1,1,1,0,0,0
+3,Symbol of great Wisdom,The attuned gains +2 to Wisdom while touching this item. Their maxumum is increased to 22,1,1,1,1,1,1,0,0,0
+3,Symbol of great Intelligence,The attuned gains +2 to Intelligence while touching this item. Their maxumum is increased to 22,1,1,1,1,1,1,0,0,0
+3,Symbol of great Charisma,The attuned gains +2 to Charisma while touching this item. Their maxumum is increased to 22,1,1,1,1,1,1,0,0,0
+3,Emblem of aggresion,Gain a +3 to your attack and damage rolls while using this item as a weapon,0,0,0,0,1,0,3,0,0
+3,Emblem of protection,Gain +3 AC while wearing this item,0,1,0,0,0,0,0,3,0
+3,Emblem of spellcraft,Gain +3 to your Spell attack and Spell Save DCs while using this item as an arcane focus,0,0,0,1,0,0,0,0,3
+3,Damage wholesaler,This item deals an additional 4d6 damage of a predetermined type on a successfull attack while being used as a weapon,0,0,0,0,1,1,0,0,0
+3,blessing of health,Spells restore an additional 4d4 health when this item is used as the arcane focus to cast them,1,0,0,1,0,0,0,0,0
+3,Mark of the infinite,The item can be used to cast predetermined spells whose combined number of levels equals 2. The level of the spells can be increased when conjoining the effects of other similar properties. The spells in this list can be cast an infinite amount of times,1,1,1,1,1,1,0,0,0
+3,Damage invulnerability,The creature attuned to this item is immune to a predetermined damage type while touching the item,1,1,1,0,0,1,0,0,0
+3,Armour piercing,Damage from this item of s apsecific type ignores resistance,0,0,0,0,1,0,0,0,0
+3,Devastaing,"When using this item as a weapon, you can reroll ones rolled on your damage dice. This ability can only be used once per attack",0,0,0,0,1,0,0,0,0
+3,Tireless,"The creature attuned to this item is immune cannot gain exhaustion while touching it, and any effects due to exhaustion are suspended.",1,1,1,1,1,1,0,0,0
+4,Magic weakness,"While attuned to the artifact, you have disadvantage on saving throws against spells.",1,1,1,1,1,1,0,0,0
+4,Sidam's touch,"The first time you touch a gem or piece of jewelry while attuned to this artifact, the value of the gem or jewelry is reduced by half.",1,1,1,1,1,1,0,0,0
+4,Bound sight,"While attuned to the artifact, you are blinded when you are more than 10 feet away from it.",1,1,1,1,1,1,0,0,0
+4,Poison weakness,"While attuned to the artifact, you have disadvantage on saving throws against poison.",1,1,1,1,1,1,0,0,0
+4,Sacrifice of pleasant company,"While attuned to the artifact, you emit a sour stench noticeable from up to 10 feet away.",1,1,1,1,1,1,0,0,0
+4,Desanctifying aura,"While attuned to the artifact, all holy water within 10 feet of you is destroyed.",1,1,1,1,1,1,0,0,0
+4,Sacrifice of health,"While attuned to the artifact, you are physically ill and have disadvantage on any ability check or saving throw that uses Strength or Constitution.",1,1,1,1,1,1,0,0,0
+4,Girth mark,"While attuned to the artifact, your weight increases by 1d4 × 10 pounds.",1,1,1,1,1,1,0,0,0
+4,Sacrifice of form,"While attuned to the artifact, your appearance changes as the DM decides.",1,1,1,1,1,1,0,0,0
+4,Sacrifice of hearing,"While attuned to the artifact, you are deafened when you are more than 10 feet away from it.",1,1,1,1,1,1,0,0,0
+4,Gaunt mark,"While attuned to the artifact, your weight drops by 1d4 × 5 pounds.",1,1,1,1,1,1,0,0,0
+4,Sacrifice of smell,"While attuned to the artifact, you can’t smell.",1,1,1,1,1,1,0,0,0
+4,Fire's flight,"While attuned to the artifact, nonmagical flames are extinguished within 30 feet of you.",1,1,1,1,1,1,0,0,0
+4,Sacrifice of rest,"While you are attuned to the artifact, other creatures can’t take short or long rests while within 300 feet of you.",1,1,1,1,1,1,0,0,0
+4,Wilting touch,"While attuned to the artifact, you deal 1d6 necrotic damage to any plant you touch that isn’t a creature.",1,1,1,1,1,1,0,0,0
+4,Unatural aura,"While you are attuned to the artifact, animals within 30 feet of you are hostile toward you.",1,1,1,1,1,1,0,0,0
+4,Sacrifice of satiation,"While attuned to the artifact, you must eat and drink six times the normal amount each day.",1,1,1,1,1,1,0,0,0
+4,Evident flaws,"While you are attuned to the artifact, your flaw is amplified in a way determined by the DM.",1,1,1,1,1,1,0,0,0
+5,Sacrifice of alignment,"While you are attuned to the artifact, you determine your alignment daily at dawn by rolling a d6 twice. On the first roll, a 1–2 indicates lawful, 3–4 neutral, and 5–6 chaotic. On the second roll, a 1–2 indicates good, 3–4 neutral, and 5–6 evil.",1,1,1,1,1,1,0,0,0
+5,Sacrifice of purpose,"When you first attune to the artifact, it gives you a quest determined by the DM. You must complete this quest as if affected by the geas spell. Once you complete the quest, you are no longer affected by this property.",1,1,1,1,1,1,0,0,0
+5,Mark of possession,"The artifact houses a bodiless life force that is hostile toward you. Each time you use an action to use one of the artifact’s properties, there is a 50 percent chance that the life force tries to leave the artifact and enter your body. If you fail a DC 20 Charisma saving throw, it succeeds, and you become an NPC under the DM’s control until the intruding life force is banished using magic such as the dispel evil and good spell.",1,1,1,1,1,1,0,0,0
+5,Sacrifice of life,"Creatures with a challenge rating of 0, as well as plants that aren’t creatures, drop to 0 hit points when within 10 feet of the artifact.",1,1,1,1,1,1,0,0,0
+5,Mark of imprisonment,"The artifact imprisons a CR 10 creature. Each time you use one of the artifact’s properties as an action, the creature has a 10 percent chance of escaping, whereupon it appears within 15 feet of you and attacks you.",1,1,1,1,1,1,0,0,0
+5,Mark of the reviled,"While you are attuned to the artifact, creatures of a particular type other than humanoid (as chosen by the DM) are always hostile toward you.",1,1,1,1,1,1,0,0,0
+5,Aura of dilution,"The artifact dilutes magic potions within 10 feet of it, rendering them nonmagical.",1,1,1,1,1,1,0,0,0
+5,Aura of erasure,"The artifact erases magic scrolls within 10 feet of it, rendering them nonmagical.",1,1,1,1,1,1,0,0,0
+5,Sacrifice of blood,"Before using one of the artifact’s properties as an action, you must use a bonus action to draw blood, either from yourself or from a willing or incapacitated creature within your reach, using a piercing or slashing melee weapon. The subject takes 1d4 damage of the appropriate type.",1,1,1,1,1,1,0,0,0
+5,Sacrifice of sanity,"When you become attuned to the artifact, you gain a form of long-term madness (see “Running the Game”).",1,1,1,1,1,1,0,0,0
+5,Mark of mind blast,You take 10d6 psychic damage when you become attuned to the artifact.,1,1,1,1,1,1,0,0,0
+5,Evil is as evil does,"Before you can become attuned to the artifact, you must kill a creature of your alignment.",1,1,1,1,1,1,0,0,0
+5,Mark of weakness,"When you become attuned to the artifact, one of your ability scores is reduced by 2 at random. A greater restoration spell restores the ability to normal.",1,1,1,1,1,1,0,0,0
+5,Sacrifice of youth,"Each time you become attuned to the artifact, you age 3d10 years. You must succeed on a DC 10 Constitution saving throw or die from the shock. If you die, you are instantly transformed into a wight (see the Monsters Listing) under the DM’s control that is sworn to protect the artifact.",1,1,1,1,1,1,0,0,0
+5,Sacrifice of speech,"While attuned to the artifact, you lose the ability to speak.",1,1,1,1,1,1,0,0,0
+5,Mark of vulnerability,"While attuned to the artifact, you have vulnerability to all damage.",1,1,1,1,1,1,0,0,0
+5,Mark of divine intrest,"When you become attuned to the artifact, there is a 10 percent chance that you attract the attention of a god that sends an avatar to wrest the artifact from you. The avatar has the same alignment as its creator and the statistics of an empyrean (see the Monsters Listing). Once it obtains the artifact, the avatar vanishes.",1,1,1,1,1,1,0,0,0

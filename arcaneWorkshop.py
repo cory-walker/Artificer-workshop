@@ -239,6 +239,12 @@ class ScrnCrafting(Screen):
         self.bAttributes.bind(on_release=self.app.gen_attributes_popup)
         self.bAttributes.name = "attributes button"
 
+        # Minor properties
+        self.bMinorProperties = kf.gen_button(text="minor properties")
+        self.bMinorProperties.bind(
+            on_release=self.app.gen_minor_properties_popup)
+        self.bMinorProperties.name = "minor properties button"
+
         self.bl = kf.pack_v_box(
             [self.blName, self.blDescription, self.blConsumable, self.blArtifact, self.bRarity, self.bAttributes])
         self.bl.name = "boxlayout screen"
@@ -266,6 +272,10 @@ class ArcaneWorkshopApp(App):
             "Attributes")  # attributesPopup()
         self.attribute_picker_popup = attributePickerPopup()
         self.attribute_button_clicked = ""
+
+        self.minorPropertiesPopup = magicPropertiesPopup("Minor properties")
+        self.minorPropertiesPickerPopup = ""
+        self.minorPropertyButtonClicked = ""
 
     def build(self):
         return self.ScrnMgr
@@ -330,6 +340,8 @@ class ArcaneWorkshopApp(App):
         # for c in self.ScrnCrafting.bl.children:
         #    if c.name == "attributes button":
         #        c.text = "Attributes: " + self.attributes_list()
+
+    def gen_minor_properties_popup(self, *args):
 
 
 if __name__ == "__main__":
