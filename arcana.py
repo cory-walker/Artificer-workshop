@@ -12,6 +12,9 @@ max_minor_properties = {1: 0, 2: 1, 3: 2, 4: 2, 5: 3}
 max_major_properties = {1: 0, 2: 0, 3: 0, 4: 1, 5: 2}
 max_minor_detriments = {1: 0, 2: 1, 3: 2, 4: 3, 5: 4}
 max_major_detriments = {1: 0, 2: 0, 3: 1, 4: 1, 5: 2}
+max_by_property = {1: max_attributes, 2: max_minor_properties,
+                   3: max_major_properties, 4: max_minor_detriments, 5: max_major_detriments}
+
 max_plus = {1: 0, 2: 1, 3: 2, 4: 3, 5: 4}
 max_exotic_materials = {1: 1, 2: 2, 3: 3, 4: 4, 5: 5}
 max_spell_lvl = {1: 1, 2: 3, 3: 6, 4: 8, 5: 9}
@@ -26,7 +29,10 @@ class MagicItem:
         self.rarity = 1
         self.is_consumable = 0
         self.is_artifact = 0
-        self.exotic_materials = {}
+        self.exotic_materials = {1: None, 2: None, 3: None, 4: None}
+
+    def property_cap(self, property_type):
+        return max_by_property[property_type][self.rarity]
 
 
 class MagicProperty:
@@ -47,10 +53,20 @@ class MagicProperty:
         self.plus_spell = int(plus_spell)
 
 
+class Material:
+
+    def __init__(self, name="", description=""):
+        self.name = name
+        self.description = description
+        self.magic_property_names = {
+            "armour": "", "ring": "", "rod_staff_wand": "", "weapon": "", "wonderous": ""}
+
+
 class lab():
 
     def __init__(self):
         self.magic_properties = {}
+        self.magic_item = MagicItem()
 
     def load_magic_properties(self):
         scrpt_dir = path.dirname(__file__)
@@ -66,7 +82,30 @@ class lab():
             self.magic_properties[mp.name] = mp
         f.close()
 
+    # Magic Item functions----------------------------------------------------
+
+    def reset_mi(self):
+        self.magic_item = MagicItem()
+
+    def set_mi_name(self, name=""):
+        self.magic_item.name = name
+
+    def set_mi_description(self, description=""):
+        self.magic_item.description = description
+
+    def set_mi_is_consumable(self, is_consumable=0):
+        self.magic_item.is_consumable = is_consumable
+
+    def set_mi_is_artifact(self, is_artifact=0):
+        self.magic_item.is_artifact = is_artifact
+
+    def add_mi_property(self, magic_property=MagicProperty()):
+        self.magic_item.magic_properties[magic_property.name] = magic_property
+
 
 if __name__ == '__main__':
     l = lab()
     l.load_magic_properties()
+    mi = MagicItem()
+    mi.rarity = 5
+    print(mi.property_cap(2))
